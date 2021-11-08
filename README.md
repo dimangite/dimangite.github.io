@@ -2,7 +2,7 @@
 <a href="https://github.com/dimangite/">
   <img align="left" alt="Github Icon" width="24px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.12.2/icons/github.svg" />
 </a>
-<a href="https://kr.linkedin.com/in/dimangchhol">
+<a href="https://linkedin.com/in/dimangchhol">
   <img align="left" alt="Linkedin Icon" width="24px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.12.2/icons/linkedin.svg" />
 </a>
 <a href="https://www.researchgate.net/profile/Dimang-Chhol">
