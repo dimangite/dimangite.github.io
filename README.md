@@ -1,4 +1,4 @@
-### Hi there 👋 My name is Dimang
+### DIMANG
 <a href="https://github.com/dimangite/">
   <img align="left" alt="Github Icon" width="24px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.12.2/icons/github.svg" />
 </a>
