@@ -10,4 +10,3 @@
 
 Thanks for visiting.
 
-<hr>   
