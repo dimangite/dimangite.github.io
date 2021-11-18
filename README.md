@@ -9,6 +9,10 @@
 
 →  Besides that, I’m learning Deep Learning and Machine Learning.
 
+→  I also write some content on Medium: <a href="https://dimangchhol.medium.com/">
+  <img align="center" alt="Medium Icon" width="24px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.12.2/icons/medium.svg" />
+</a>
+
 →  You may see more detail about me via:  <a href="https://linkedin.com/in/dimangchhol">
   <img align="center" alt="Linkedin Icon" width="24px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.12.2/icons/linkedin.svg" />
 </a>
