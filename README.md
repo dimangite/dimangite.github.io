@@ -9,7 +9,9 @@
 
 →  Besides that, I’m learning Deep Learning and Machine Learning.
 
-→  You may see more detail about me via: https://linkedin.com/in/dimangchhol
+→  You may see more detail about me via:  <a href="https://linkedin.com/in/dimangchhol">
+  <img align="center" alt="Linkedin Icon" width="24px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.12.2/icons/linkedin.svg" />
+</a>
 
 
 Thanks for visiting.
