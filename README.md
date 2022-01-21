@@ -22,5 +22,6 @@
 
 
 
-Thanks for visiting.
+Thanks for visiting.<br>
+&copy; 2022 
 
