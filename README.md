@@ -12,10 +12,6 @@
 •  List of participating in R&D projects and Paper from <a href="https://www.ntis.go.kr/ThSearchTotalList.do?searchWord=Dimang+Chhol">
   National Science & Technology Information Service (NTIS).</a>
 
-•  Open Researcher and Contributor: <a href="https://orcid.org/0000-0002-2650-7569">
-  <img align="center" alt="ORCID Icon" width="24px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.12.2/icons/orcid.svg" />
-</a>
-
 •  More info via:  <a href="https://linkedin.com/in/dimangchhol">
   <img align="center" alt="Linkedin Icon" width="24px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.12.2/icons/linkedin.svg" />
 </a>
