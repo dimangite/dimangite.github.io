@@ -9,7 +9,7 @@
 
 •  Besides that, I’m learning Deep Learning and Machine Learning.
 
-•  List of participating in R&D projects from <a href="https://www.ntis.go.kr/ThSearchProjectList.do?searchWord=Dimang+Chhol">
+•  List of participating in R&D projects and Paper from <a href="https://www.ntis.go.kr/ThSearchTotalList.do?searchWord=Dimang+Chhol">
   National Science & Technology Information Service (NTIS).</a>
 
 •  Open Researcher and Contributor: <a href="https://orcid.org/0000-0002-2650-7569">
