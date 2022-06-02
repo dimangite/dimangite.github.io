@@ -16,8 +16,6 @@
   <img align="center" alt="Linkedin Icon" width="24px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.12.2/icons/linkedin.svg" />
 </a>
 
-
-
-Thanks for visiting.<br>
+<br>
 &copy; 2022 
 
