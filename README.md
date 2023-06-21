@@ -1,4 +1,3 @@
-### DIMANG
 <a href="https://github.com/dimangite"> Github
 </a>
 
@@ -12,5 +11,5 @@
 </a>
 
 <br>
-&copy; JUNE 2023 
+JUNE 2023 
 
