@@ -1,11 +1,6 @@
 
-•  I’m currently a graduate student in Computer Science in South Korea.
-
-•  I'm from Cambodia.
-
-•  More info via:  <a href="https://linkedin.com/in/dimangchhol"> Linkedin
-</a>
+•  I’m currently a graduate student in Computer Science.
 
 <br>
-January 2024
+November 2024
 
