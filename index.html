@@ -8,43 +8,82 @@
       name="description"
       content="Dimang Chhol — CS PhD student focused on predictive modeling, ML evaluation, and reproducible research engineering."
     />
+    <script>
+      (function () {
+        try {
+          const storedTheme = localStorage.getItem("theme");
+          const preferredTheme =
+            storedTheme ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", preferredTheme);
+        } catch (error) {
+          document.documentElement.setAttribute(
+            "data-theme",
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+          );
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#main-content" data-i18n="skipLink">Skip to main content</a>
 
     <header class="site-header" id="top">
       <div class="container header-inner">
         <p class="site-name">Dimang Chhol</p>
+        <div class="header-actions">
+          <button
+            class="control-btn"
+            id="theme-toggle"
+            type="button"
+            aria-pressed="false"
+            data-i18n-attr-aria-label="themeToggleAria"
+          >
+            <span data-i18n="themeTogglePrefix">Theme</span>:
+            <span id="theme-toggle-value">Light</span>
+          </button>
+          <button
+            class="control-btn"
+            id="lang-toggle"
+            type="button"
+            aria-pressed="false"
+            data-i18n-attr-aria-label="langToggleAria"
+          >
+            <span data-i18n="langTogglePrefix">Language</span>:
+            <span id="lang-toggle-value">EN</span>
+          </button>
+        </div>
         <button
           class="nav-toggle"
           type="button"
           aria-expanded="false"
           aria-controls="mobile-nav"
+          data-i18n-attr-aria-label="navToggleAria"
         >
-          <span class="visually-hidden">Toggle navigation</span>
+          <span class="visually-hidden" data-i18n="navToggleLabel">Toggle navigation</span>
           <span aria-hidden="true">☰</span>
         </button>
         <nav class="desktop-nav" aria-label="Primary">
           <ul class="nav-list">
-            <li><a href="#about">About</a></li>
-            <li><a href="#focus">Focus</a></li>
-            <li><a href="#work">Selected Work</a></li>
-            <li><a href="#stack">Tech Stack</a></li>
-            <li><a href="#research">Research Note</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about" data-i18n="navAbout">About</a></li>
+            <li><a href="#focus" data-i18n="navFocus">Focus</a></li>
+            <li><a href="#work" data-i18n="navWork">Selected Work</a></li>
+            <li><a href="#stack" data-i18n="navStack">Tech Stack</a></li>
+            <li><a href="#research" data-i18n="navResearch">Research Note</a></li>
+            <li><a href="#contact" data-i18n="navContact">Contact</a></li>
           </ul>
         </nav>
       </div>
-      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile menu" hidden>
+      <nav class="mobile-nav" id="mobile-nav" data-i18n-attr-aria-label="mobileMenuAria" hidden>
         <div class="container">
           <ul class="nav-list">
-            <li><a href="#about">About</a></li>
-            <li><a href="#focus">Focus</a></li>
-            <li><a href="#work">Selected Work</a></li>
-            <li><a href="#stack">Tech Stack</a></li>
-            <li><a href="#research">Research Note</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about" data-i18n="navAbout">About</a></li>
+            <li><a href="#focus" data-i18n="navFocus">Focus</a></li>
+            <li><a href="#work" data-i18n="navWork">Selected Work</a></li>
+            <li><a href="#stack" data-i18n="navStack">Tech Stack</a></li>
+            <li><a href="#research" data-i18n="navResearch">Research Note</a></li>
+            <li><a href="#contact" data-i18n="navContact">Contact</a></li>
           </ul>
         </div>
       </nav>
@@ -53,11 +92,13 @@
     <main id="main-content">
       <section class="hero section" id="about" aria-labelledby="hero-title">
         <div class="container">
-          <p class="eyebrow">CS PhD Student</p>
+          <p class="eyebrow" data-i18n="heroEyebrow">CS PhD Student</p>
           <h1 id="hero-title">
-            Predictive modeling, ML evaluation, and reproducible research engineering.
+            <span data-i18n="heroTitle"
+              >Predictive modeling, ML evaluation, and reproducible research engineering.</span
+            >
           </h1>
-          <p class="lead">
+          <p class="lead" data-i18n="heroLead">
             I build Python-based workflows for disciplined benchmarking, transparent reporting,
             and reliable experimentation in machine learning.
           </p>
@@ -66,39 +107,41 @@
 
       <section class="section" id="focus" aria-labelledby="focus-title">
         <div class="container">
-          <h2 id="focus-title">Current Focus</h2>
+          <h2 id="focus-title" data-i18n="focusTitle">Current Focus</h2>
           <ul class="tag-list">
-            <li>Predictive modeling</li>
-            <li>Benchmarking discipline</li>
-            <li>Reproducible ML workflows</li>
-            <li>Evaluation and reporting</li>
-            <li>Python research engineering</li>
+            <li data-i18n="focusTag1">Predictive modeling</li>
+            <li data-i18n="focusTag2">Benchmarking discipline</li>
+            <li data-i18n="focusTag3">Reproducible ML workflows</li>
+            <li data-i18n="focusTag4">Evaluation and reporting</li>
+            <li data-i18n="focusTag5">Python research engineering</li>
           </ul>
         </div>
       </section>
 
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="container">
-          <h2 id="work-title">Selected Work</h2>
+          <h2 id="work-title" data-i18n="workTitle">Selected Work</h2>
           <ul class="card-grid">
             <li class="card">
               <article>
-                <h3>Public Engineering Demo</h3>
-                <p>Reproducible implementation and workflow example.</p>
+                <h3 data-i18n="workCard1Title">Public Engineering Demo</h3>
+                <p data-i18n="workCard1Desc">Reproducible implementation and workflow example.</p>
                 <!-- TODO: Replace with a real repository name and URL for a public demo project. -->
               </article>
             </li>
             <li class="card">
               <article>
-                <h3>Evaluation/Reporting Tooling</h3>
-                <p>Sanitized tooling for ML experiment analysis and reporting.</p>
+                <h3 data-i18n="workCard2Title">Evaluation/Reporting Tooling</h3>
+                <p data-i18n="workCard2Desc">
+                  Sanitized tooling for ML experiment analysis and reporting.
+                </p>
                 <!-- TODO: Replace with a real repository name and URL for evaluation/reporting tooling. -->
               </article>
             </li>
             <li class="card">
               <article>
-                <h3>Reproducibility Workflow</h3>
-                <p>Pipeline-oriented setup for repeatable ML experiments.</p>
+                <h3 data-i18n="workCard3Title">Reproducibility Workflow</h3>
+                <p data-i18n="workCard3Desc">Pipeline-oriented setup for repeatable ML experiments.</p>
                 <!-- TODO: Replace with a real repository name and URL for a reproducibility-focused project. -->
               </article>
             </li>
@@ -108,15 +151,15 @@
 
       <section class="section" id="stack" aria-labelledby="stack-title">
         <div class="container">
-          <h2 id="stack-title">Tech Stack</h2>
-          <p>Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX</p>
+          <h2 id="stack-title" data-i18n="stackTitle">Tech Stack</h2>
+          <p data-i18n="stackDesc">Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX</p>
         </div>
       </section>
 
       <section class="section" id="research" aria-labelledby="research-title">
         <div class="container">
-          <h2 id="research-title">Research Note</h2>
-          <p>
+          <h2 id="research-title" data-i18n="researchTitle">Research Note</h2>
+          <p data-i18n="researchDesc">
             Active publication work and paper code remain private due to research constraints.
             Public repositories focus on sanitized implementations, tooling, and reproducible
             workflows.
@@ -127,7 +170,7 @@
 
     <footer class="section" id="contact" aria-labelledby="contact-title">
       <div class="container">
-        <h2 id="contact-title">Contact & Links</h2>
+        <h2 id="contact-title" data-i18n="contactTitle">Contact & Links</h2>
         <ul class="link-list">
           <li><a href="https://github.com/dimangite">GitHub</a></li>
         </ul>
@@ -137,6 +180,149 @@
     <script>
       const navToggle = document.querySelector(".nav-toggle");
       const mobileNav = document.getElementById("mobile-nav");
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeToggleValue = document.getElementById("theme-toggle-value");
+      const langToggle = document.getElementById("lang-toggle");
+      const langToggleValue = document.getElementById("lang-toggle-value");
+      const i18nElements = document.querySelectorAll("[data-i18n]");
+      const i18nAttrElements = document.querySelectorAll("[data-i18n-attr-aria-label]");
+
+      const translations = {
+        en: {
+          skipLink: "Skip to main content",
+          themeTogglePrefix: "Theme",
+          themeToggleAria: "Toggle light and dark theme",
+          lightLabel: "Light",
+          darkLabel: "Dark",
+          langTogglePrefix: "Language",
+          langToggleAria: "Toggle language between English and Korean",
+          navToggleLabel: "Toggle navigation",
+          navToggleAria: "Toggle navigation menu",
+          mobileMenuAria: "Mobile menu",
+          navAbout: "About",
+          navFocus: "Focus",
+          navWork: "Selected Work",
+          navStack: "Tech Stack",
+          navResearch: "Research Note",
+          navContact: "Contact",
+          heroEyebrow: "CS PhD Student",
+          heroTitle: "Predictive modeling, ML evaluation, and reproducible research engineering.",
+          heroLead:
+            "I build Python-based workflows for disciplined benchmarking, transparent reporting, and reliable experimentation in machine learning.",
+          focusTitle: "Current Focus",
+          focusTag1: "Predictive modeling",
+          focusTag2: "Benchmarking discipline",
+          focusTag3: "Reproducible ML workflows",
+          focusTag4: "Evaluation and reporting",
+          focusTag5: "Python research engineering",
+          workTitle: "Selected Work",
+          workCard1Title: "Public Engineering Demo",
+          workCard1Desc: "Reproducible implementation and workflow example.",
+          workCard2Title: "Evaluation/Reporting Tooling",
+          workCard2Desc: "Sanitized tooling for ML experiment analysis and reporting.",
+          workCard3Title: "Reproducibility Workflow",
+          workCard3Desc: "Pipeline-oriented setup for repeatable ML experiments.",
+          stackTitle: "Tech Stack",
+          stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX",
+          researchTitle: "Research Note",
+          researchDesc:
+            "Active publication work and paper code remain private due to research constraints. Public repositories focus on sanitized implementations, tooling, and reproducible workflows.",
+          contactTitle: "Contact & Links"
+        },
+        ko: {
+          skipLink: "본문으로 건너뛰기",
+          themeTogglePrefix: "테마",
+          themeToggleAria: "라이트와 다크 테마 전환",
+          lightLabel: "라이트",
+          darkLabel: "다크",
+          langTogglePrefix: "언어",
+          langToggleAria: "영어와 한국어 전환",
+          navToggleLabel: "내비게이션 전환",
+          navToggleAria: "내비게이션 메뉴 전환",
+          mobileMenuAria: "모바일 메뉴",
+          navAbout: "소개",
+          navFocus: "집중 분야",
+          navWork: "주요 작업",
+          navStack: "기술 스택",
+          navResearch: "연구 노트",
+          navContact: "연락처",
+          heroEyebrow: "컴퓨터공학 박사과정",
+          heroTitle: "예측 모델링, ML 평가, 그리고 재현 가능한 연구 엔지니어링.",
+          heroLead:
+            "머신러닝 실험을 위해 체계적인 벤치마킹, 투명한 보고, 신뢰할 수 있는 재현 과정을 갖춘 Python 기반 워크플로를 구축합니다.",
+          focusTitle: "현재 집중 분야",
+          focusTag1: "예측 모델링",
+          focusTag2: "벤치마킹 원칙",
+          focusTag3: "재현 가능한 ML 워크플로",
+          focusTag4: "평가 및 리포팅",
+          focusTag5: "Python 연구 엔지니어링",
+          workTitle: "주요 작업",
+          workCard1Title: "Public Engineering Demo",
+          workCard1Desc: "재현 가능한 구현 및 워크플로 예시.",
+          workCard2Title: "Evaluation/Reporting Tooling",
+          workCard2Desc: "ML 실험 분석 및 보고를 위한 정제된 도구.",
+          workCard3Title: "Reproducibility Workflow",
+          workCard3Desc: "반복 가능한 ML 실험을 위한 파이프라인 중심 구성.",
+          stackTitle: "기술 스택",
+          stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX",
+          researchTitle: "연구 노트",
+          researchDesc:
+            "연구 제약으로 인해 진행 중인 출판 작업과 논문 코드는 비공개입니다. 공개 저장소는 정제된 구현, 도구, 재현 가능한 워크플로에 중점을 둡니다.",
+          contactTitle: "연락처 및 링크"
+        }
+      };
+
+      let currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+      let currentLanguage = "en";
+
+      try {
+        const storedLanguage = localStorage.getItem("language");
+        if (storedLanguage === "ko" || storedLanguage === "en") {
+          currentLanguage = storedLanguage;
+        }
+      } catch (error) {
+        currentLanguage = "en";
+      }
+
+      function applyTheme(theme) {
+        currentTheme = theme === "dark" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        if (themeToggleValue) {
+          themeToggleValue.textContent =
+            translations[currentLanguage][currentTheme === "dark" ? "darkLabel" : "lightLabel"];
+        }
+        if (themeToggle) {
+          themeToggle.setAttribute("aria-pressed", String(currentTheme === "dark"));
+        }
+      }
+
+      function applyLanguage(language) {
+        currentLanguage = language === "ko" ? "ko" : "en";
+        document.documentElement.lang = currentLanguage;
+        const dict = translations[currentLanguage];
+
+        i18nElements.forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          if (key && dict[key]) {
+            element.textContent = dict[key];
+          }
+        });
+
+        i18nAttrElements.forEach((element) => {
+          const key = element.getAttribute("data-i18n-attr-aria-label");
+          if (key && dict[key]) {
+            element.setAttribute("aria-label", dict[key]);
+          }
+        });
+
+        if (langToggleValue) {
+          langToggleValue.textContent = currentLanguage === "ko" ? "한국어" : "EN";
+        }
+        if (langToggle) {
+          langToggle.setAttribute("aria-pressed", String(currentLanguage === "ko"));
+        }
+        applyTheme(currentTheme);
+      }
 
       if (navToggle && mobileNav) {
         navToggle.addEventListener("click", () => {
@@ -153,6 +339,32 @@
           }
         });
       }
+
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const nextTheme = currentTheme === "dark" ? "light" : "dark";
+          applyTheme(nextTheme);
+          try {
+            localStorage.setItem("theme", nextTheme);
+          } catch (error) {
+            // Ignore storage failures.
+          }
+        });
+      }
+
+      if (langToggle) {
+        langToggle.addEventListener("click", () => {
+          const nextLanguage = currentLanguage === "ko" ? "en" : "ko";
+          applyLanguage(nextLanguage);
+          try {
+            localStorage.setItem("language", nextLanguage);
+          } catch (error) {
+            // Ignore storage failures.
+          }
+        });
+      }
+
+      applyLanguage(currentLanguage);
     </script>
   </body>
 </html>
