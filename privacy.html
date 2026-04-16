@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy | Dimang Chhol</title>
+    <meta
+      name="description"
+      content="Minimal privacy note for dimangite.github.io portfolio site."
+    />
+    <script>
+      (function () {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        try {
+          const storedTheme = localStorage.getItem("theme");
+          const safeTheme = storedTheme === "dark" || storedTheme === "light" ? storedTheme : null;
+          document.documentElement.setAttribute("data-theme", safeTheme || (prefersDark ? "dark" : "light"));
+        } catch (error) {
+          document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <p class="site-name"><a href="index.html">Dimang</a></p>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section" aria-labelledby="privacy-title">
+        <div class="container">
+          <h1 id="privacy-title">Privacy</h1>
+          <p>
+            This portfolio site is hosted on GitHub Pages.
+          </p>
+          <p>
+            The site may store local browser preferences, such as theme and language, using local
+            storage on your device.
+          </p>
+          <p>
+            This site does not intentionally use advertising cookies or third-party tracking
+            scripts.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="section site-footer">
+      <div class="container">
+        <ul class="link-list">
+          <li><a href="index.html">Back to portfolio</a></li>
+          <li><a href="privacy.html" aria-current="page">Privacy</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

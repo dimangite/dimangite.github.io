@@ -285,6 +285,105 @@ h2 {
   font-size: 0.95rem;
 }
 
+.timeline-intro {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  max-width: 75ch;
+}
+
+.timeline-group {
+  margin-top: 1.5rem;
+}
+
+.timeline-group + .timeline-group {
+  margin-top: 2rem;
+}
+
+.timeline-group-title {
+  font-size: 1.08rem;
+}
+
+.timeline-list {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0 0 0 1.55rem;
+  position: relative;
+}
+
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0.45rem;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 1rem;
+  left: -1.1rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 2px var(--bg);
+}
+
+.timeline-content {
+  min-width: 0;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.timeline-date {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.timeline-heading {
+  margin: 0.35rem 0 0;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.timeline-meta {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
+.timeline-role {
+  margin: 0.45rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.timeline-link-row {
+  margin: 0.45rem 0 0;
+}
+
+.timeline-link {
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
 .link-list {
   list-style: none;
   display: flex;
@@ -308,6 +407,24 @@ h2 {
 @media (max-width: 920px) {
   .card {
     grid-column: span 6;
+  }
+}
+
+@media (min-width: 769px) {
+  .timeline-list {
+    padding-left: 1.85rem;
+  }
+
+  .timeline-list::before {
+    left: 0.56rem;
+  }
+
+  .timeline-marker {
+    left: -1.33rem;
+  }
+
+  .timeline-content {
+    padding: 1.05rem 1.15rem;
   }
 }
 
