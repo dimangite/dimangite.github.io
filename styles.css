@@ -1,5 +1,6 @@
 :root {
   --bg: #f7f8fa;
+  --bg-rgb: 247, 248, 250;
   --surface: #ffffff;
   --text: #1d2430;
   --muted: #4e5b70;
@@ -65,7 +66,7 @@ a:focus-visible {
   top: 0;
   z-index: 10;
   border-bottom: 1px solid var(--border);
-  background: rgba(247, 248, 250, 0.95);
+  background: rgba(var(--bg-rgb), 0.95);
   backdrop-filter: blur(6px);
 }
 
@@ -160,6 +161,8 @@ h2 {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
+  list-style: none;
+  padding: 0;
 }
 
 .card {
