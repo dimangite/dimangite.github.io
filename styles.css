@@ -99,7 +99,7 @@ html[lang="km"] .tag-list li {
 html[lang="km"] .timeline-heading,
 html[lang="km"] .timeline-meta,
 html[lang="km"] .timeline-role,
-html[lang="km"] #privacy p,
+html[lang="km"] .footer-privacy-note,
 html[lang="km"] .contact-link,
 html[lang="km"] .footer-privacy-link {
   line-height: 1.65;
@@ -372,8 +372,7 @@ h2 {
 }
 
 #stack p,
-#research p,
-#privacy p {
+#research p {
   margin-top: 0.9rem;
   color: var(--muted);
   max-width: 75ch;
@@ -562,6 +561,13 @@ h2 {
   flex: none;
 }
 
+.footer-privacy-note {
+  margin: 0.9rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  max-width: 74ch;
+}
+
 .footer-bottom {
   margin-top: 1rem;
   padding-top: 0.75rem;
@@ -577,7 +583,7 @@ h2 {
 .footer-privacy-link {
   font-size: 0.82rem;
   color: var(--muted);
-  text-decoration: none;
+  text-decoration: underline;
   overflow-wrap: anywhere;
 }
 
@@ -603,10 +609,6 @@ h2 {
 .research-verification a:hover,
 .research-verification a:focus-visible {
   color: var(--accent);
-}
-
-.privacy-section p + p {
-  margin-top: 0.65rem;
 }
 
 @media (max-width: 920px) {
