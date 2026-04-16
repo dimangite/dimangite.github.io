@@ -8,7 +8,6 @@
   --accent: #2f5eb8;
   --accent-rgb: 47, 94, 184;
   --maxw: 960px;
-  --mobile-breakpoint: 768px;
   --radius: 12px;
   --shadow: 0 4px 20px rgba(17, 24, 39, 0.05);
 }
