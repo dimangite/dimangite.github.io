@@ -36,7 +36,7 @@
           </ul>
         </nav>
       </div>
-      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Primary navigation" hidden>
         <div class="container">
           <ul class="nav-list">
             <li><a href="#about">About</a></li>
@@ -149,6 +149,7 @@
           if (event.target.closest("a")) {
             navToggle.setAttribute("aria-expanded", "false");
             mobileNav.hidden = true;
+            navToggle.focus();
           }
         });
       }
