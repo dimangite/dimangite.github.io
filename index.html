@@ -6,7 +6,7 @@
     <title>Dimang Chhol | CS PhD Portfolio</title>
     <meta
       name="description"
-      content="Dimang Chhol — CS PhD student focused on predictive modeling, ML evaluation, and reproducible research engineering."
+      content="Dimang Chhol - CS PhD student focused on predictive modeling, ML evaluation, and reproducible research engineering."
     />
     <script>
       (function () {
@@ -14,18 +14,17 @@
         try {
           const storedTheme = localStorage.getItem("theme");
           const safeTheme = storedTheme === "dark" || storedTheme === "light" ? storedTheme : null;
-          const preferredTheme =
-            safeTheme || (prefersDark ? "dark" : "light");
+          const preferredTheme = safeTheme || (prefersDark ? "dark" : "light");
           document.documentElement.setAttribute("data-theme", preferredTheme);
+
           const storedLanguage = localStorage.getItem("language");
           const safeLanguage =
-            storedLanguage === "ko" || storedLanguage === "en" ? storedLanguage : "en";
+            storedLanguage === "en" || storedLanguage === "ko" || storedLanguage === "km"
+              ? storedLanguage
+              : "en";
           document.documentElement.lang = safeLanguage;
         } catch (error) {
-          document.documentElement.setAttribute(
-            "data-theme",
-            prefersDark ? "dark" : "light"
-          );
+          document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
           document.documentElement.lang = "en";
         }
       })();
@@ -83,9 +82,8 @@
             >
           </h1>
           <p class="lead" data-i18n="heroLead">
-            I build Python-based workflows for structured ML experimentation — disciplined
-            benchmarking, systematic evaluation, and reproducible reporting across the modeling
-            pipeline.
+            I build Python-based workflows for benchmarking, model evaluation, and reproducible
+            reporting across ML experiments.
           </p>
         </div>
       </section>
@@ -106,24 +104,37 @@
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="container">
           <h2 id="work-title" data-i18n="workTitle">Selected Work</h2>
-          <p data-i18n="workIntro">Public-facing components drawn from my research engineering workflow. Active research code remains private; these represent sanitized patterns and tooling.</p>
+          <p data-i18n="workIntro">
+            Representative tooling from my research engineering workflow. Active paper code and
+            unpublished experiments remain private; the public repositories focus on reusable
+            infrastructure and reporting patterns.
+          </p>
           <ul class="card-grid">
             <li class="card">
               <article>
                 <h3 data-i18n="workCard1Title">Experiment Pipeline Template</h3>
-                <p data-i18n="workCard1Desc">Structured project scaffold for ML experiments with configuration management, reproducible training runs, and standardized result logging.</p>
+                <p data-i18n="workCard1Desc">
+                  Structured ML experiment scaffold with configuration management, run tracking,
+                  and reproducible outputs.
+                </p>
               </article>
             </li>
             <li class="card">
               <article>
                 <h3 data-i18n="workCard2Title">Evaluation Toolkit</h3>
-                <p data-i18n="workCard2Desc">Utilities for computing metrics across model variants, handling cross-validation splits, and generating performance comparison tables.</p>
+                <p data-i18n="workCard2Desc">
+                  Utilities for metric computation, split management, and comparison tables for
+                  consistent model evaluation.
+                </p>
               </article>
             </li>
             <li class="card">
               <article>
                 <h3 data-i18n="workCard3Title">Reporting Pipeline</h3>
-                <p data-i18n="workCard3Desc">Automated generation of result summaries and comparison reports from experiment logs, designed for reproducibility audits and paper preparation.</p>
+                <p data-i18n="workCard3Desc">
+                  Automated reporting workflow for result summaries and audit-ready comparison
+                  reports from experiment logs.
+                </p>
               </article>
             </li>
           </ul>
@@ -133,7 +144,7 @@
       <section class="section" id="stack" aria-labelledby="stack-title">
         <div class="container">
           <h2 id="stack-title" data-i18n="stackTitle">Tech Stack</h2>
-          <p data-i18n="stackDesc">Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX</p>
+          <p data-i18n="stackDesc">Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL</p>
         </div>
       </section>
 
@@ -141,11 +152,10 @@
         <div class="container">
           <h2 id="research-title" data-i18n="researchTitle">Research Note</h2>
           <p data-i18n="researchDesc">
-            Active research — including paper submissions, experiment code, and unpublished
-            results — remains in private repositories under standard academic constraints.
-            Public repositories contain sanitized tooling and workflow components extracted from
-            my research infrastructure. Source code supporting publications will be released as
-            journal policies permit.
+            Active manuscript code, unpublished experiments, and submission artifacts remain
+            private under research and publication constraints. Public repositories expose
+            sanitized workflow components and reusable engineering patterns. Publication-linked
+            source code will be released when venue and journal policies allow.
           </p>
         </div>
       </section>
@@ -168,16 +178,10 @@
             <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
             <span class="visually-hidden" data-i18n="themeToggleLabel">Toggle theme</span>
           </button>
-          <button
-            class="icon-control"
-            id="lang-toggle"
-            type="button"
-            aria-pressed="false"
-            data-i18n-attr-aria-label="langToggleAria"
-          >
+          <button class="icon-control" id="lang-toggle" type="button">
             <span aria-hidden="true">🌐</span>
             <span id="lang-toggle-value">EN</span>
-            <span class="visually-hidden" data-i18n="langToggleLabel">Toggle language</span>
+            <span class="visually-hidden" data-i18n="langToggleLabel">Change language</span>
           </button>
         </div>
       </div>
@@ -198,8 +202,8 @@
           skipLink: "Skip to main content",
           themeToggleLabel: "Toggle theme",
           themeToggleAria: "Toggle light and dark theme",
-          langToggleLabel: "Toggle language",
-          langToggleAria: "Toggle language between English and Korean",
+          langToggleLabel: "Change language",
+          langToggleAria: "Change language",
           langShortLabel: "EN",
           navToggleLabel: "Toggle navigation",
           navToggleAria: "Toggle navigation menu",
@@ -207,13 +211,15 @@
           navAbout: "About",
           navFocus: "Focus",
           navWork: "Selected Work",
+          selectedWork: "Selected Work",
           navStack: "Tech Stack",
+          techStack: "Tech Stack",
           navResearch: "Research Note",
           navContact: "Contact",
           heroEyebrow: "CS PhD Student",
           heroTitle: "Predictive modeling, ML evaluation, and reproducible research engineering.",
           heroLead:
-            "I build Python-based workflows for structured ML experimentation \u2014 disciplined benchmarking, systematic evaluation, and reproducible reporting across the modeling pipeline.",
+            "I build Python-based workflows for benchmarking, model evaluation, and reproducible reporting across ML experiments.",
           focusTitle: "Current Focus",
           focusTag1: "Predictive modeling",
           focusTag2: "Benchmark design",
@@ -222,29 +228,29 @@
           focusTag5: "Research tooling in Python",
           workTitle: "Selected Work",
           workIntro:
-            "Public-facing components drawn from my research engineering workflow. Active research code remains private; these represent sanitized patterns and tooling.",
+            "Representative tooling from my research engineering workflow. Active paper code and unpublished experiments remain private; the public repositories focus on reusable infrastructure and reporting patterns.",
           workCard1Title: "Experiment Pipeline Template",
           workCard1Desc:
-            "Structured project scaffold for ML experiments with configuration management, reproducible training runs, and standardized result logging.",
+            "Structured ML experiment scaffold with configuration management, run tracking, and reproducible outputs.",
           workCard2Title: "Evaluation Toolkit",
           workCard2Desc:
-            "Utilities for computing metrics across model variants, handling cross-validation splits, and generating performance comparison tables.",
+            "Utilities for metric computation, split management, and comparison tables for consistent model evaluation.",
           workCard3Title: "Reporting Pipeline",
           workCard3Desc:
-            "Automated generation of result summaries and comparison reports from experiment logs, designed for reproducibility audits and paper preparation.",
+            "Automated reporting workflow for result summaries and audit-ready comparison reports from experiment logs.",
           stackTitle: "Tech Stack",
-          stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX",
+          stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL",
           researchTitle: "Research Note",
           researchDesc:
-            "Active research \u2014 including paper submissions, experiment code, and unpublished results \u2014 remains in private repositories under standard academic constraints. Public repositories contain sanitized tooling and workflow components extracted from my research infrastructure. Source code supporting publications will be released as journal policies permit.",
+            "Active manuscript code, unpublished experiments, and submission artifacts remain private under research and publication constraints. Public repositories expose sanitized workflow components and reusable engineering patterns. Publication-linked source code will be released when venue and journal policies allow.",
           contactTitle: "Contact & Links"
         },
         ko: {
           skipLink: "본문으로 건너뛰기",
           themeToggleLabel: "테마 전환",
           themeToggleAria: "라이트와 다크 테마 전환",
-          langToggleLabel: "언어 전환",
-          langToggleAria: "영어와 한국어 전환",
+          langToggleLabel: "언어 변경",
+          langToggleAria: "언어 변경",
           langShortLabel: "KO",
           navToggleLabel: "내비게이션 전환",
           navToggleAria: "내비게이션 메뉴 전환",
@@ -252,13 +258,15 @@
           navAbout: "소개",
           navFocus: "집중 분야",
           navWork: "주요 작업",
+          selectedWork: "주요 작업",
           navStack: "기술 스택",
+          techStack: "기술 스택",
           navResearch: "연구 노트",
           navContact: "연락처",
           heroEyebrow: "컴퓨터공학 박사과정",
           heroTitle: "예측 모델링, ML 평가, 그리고 재현 가능한 연구 엔지니어링.",
           heroLead:
-            "체계적인 ML 실험을 위한 Python 기반 워크플로를 구축합니다 \u2014 벤치마크 설계, 체계적 평가, 모델링 파이프라인 전반의 재현 가능한 리포팅.",
+            "ML 실험 전반에서 benchmarking, model evaluation, reproducible reporting을 수행하기 위한 Python 기반 workflow를 구축합니다.",
           focusTitle: "현재 집중 분야",
           focusTag1: "예측 모델링",
           focusTag2: "벤치마크 설계",
@@ -267,27 +275,85 @@
           focusTag5: "Python 기반 연구 도구 개발",
           workTitle: "주요 작업",
           workIntro:
-            "연구 엔지니어링 워크플로에서 추출한 공개용 구성 요소입니다. 진행 중인 연구 코드는 비공개이며, 정제된 패턴과 도구를 나타냅니다.",
+            "연구 엔지니어링 workflow에서 추린 공개용 도구입니다. 진행 중인 논문 코드와 미공개 실험은 비공개로 유지하며, 공개 저장소에는 재사용 가능한 infrastructure와 reporting patterns만 반영했습니다.",
           workCard1Title: "실험 파이프라인 템플릿",
           workCard1Desc:
-            "구성 관리, 재현 가능한 학습 실행, 표준화된 결과 로깅을 갖춘 ML 실험용 프로젝트 스캐폴드.",
+            "configuration management, run tracking, reproducible outputs를 포함한 ML experiment scaffold입니다.",
           workCard2Title: "평가 도구",
           workCard2Desc:
-            "모델 변형 간 지표 계산, 교차 검증 분할 처리, 성능 비교표 생성을 위한 유틸리티.",
+            "일관된 model evaluation을 위해 metric computation, split management, comparison tables를 지원하는 도구입니다.",
           workCard3Title: "리포팅 파이프라인",
           workCard3Desc:
-            "실험 로그에서 결과 요약 및 비교 보고서를 자동 생성합니다. 재현성 검증과 논문 준비를 위해 설계되었습니다.",
+            "experiment logs에서 result summaries와 audit-ready comparison reports를 자동 생성하는 reporting workflow입니다.",
           stackTitle: "기술 스택",
-          stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX",
+          stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL",
           researchTitle: "연구 노트",
           researchDesc:
-            "논문 투고, 실험 코드, 미발표 결과를 포함한 진행 중인 연구는 학술적 제약에 따라 비공개 저장소에 보관됩니다. 공개 저장소에는 연구 인프라에서 추출한 정제된 도구와 워크플로 구성 요소가 포함됩니다. 출판물 관련 소스 코드는 학술지 정책이 허용하는 범위 내에서 공개될 예정입니다.",
+            "진행 중인 manuscript code, unpublished experiments, submission artifacts는 연구 및 출판 제약에 따라 비공개로 유지합니다. 공개 저장소에는 정제된 workflow components와 재사용 가능한 engineering patterns만 포함합니다. publication-linked source code는 venue 및 journal policy가 허용하는 시점에 공개합니다.",
           contactTitle: "연락처 및 링크"
+        },
+        km: {
+          skipLink: "រំលងទៅមាតិកាសំខាន់",
+          themeToggleLabel: "ប្ដូររូបរាង",
+          themeToggleAria: "ប្ដូររវាងរូបរាងភ្លឺ និងងងឹត",
+          langToggleLabel: "ប្ដូរភាសា",
+          langToggleAria: "ប្ដូរភាសា",
+          langShortLabel: "KM",
+          navToggleLabel: "ប្ដូរម៉ឺនុយរុករក",
+          navToggleAria: "បើក ឬបិទ ម៉ឺនុយរុករក",
+          mobileMenuAria: "ម៉ឺនុយលើទូរស័ព្ទ",
+          navAbout: "អំពីខ្ញុំ",
+          navFocus: "ចំណុចផ្ដោតបច្ចុប្បន្ន",
+          navWork: "ស្នាដៃជ្រើសរើស",
+          selectedWork: "ស្នាដៃជ្រើសរើស",
+          navStack: "បណ្ដុំបច្ចេកវិទ្យា",
+          techStack: "បណ្ដុំបច្ចេកវិទ្យា",
+          navResearch: "កំណត់ចំណាំស្រាវជ្រាវ",
+          navContact: "ទំនាក់ទំនង",
+          heroEyebrow: "និស្សិតបណ្ឌិតវិទ្យាសាស្ត្រកុំព្យូទ័រ",
+          heroTitle: "Predictive modeling, ML evaluation, and reproducible research engineering.",
+          heroLead:
+            "ខ្ញុំបង្កើត workflow ផ្អែកលើ Python សម្រាប់ benchmarking, model evaluation និង reproducible reporting នៅទូទាំង ML experiments។",
+          focusTitle: "ចំណុចផ្ដោតបច្ចុប្បន្ន",
+          focusTag1: "Predictive modeling",
+          focusTag2: "Benchmark design",
+          focusTag3: "Reproducible ML workflows",
+          focusTag4: "Model evaluation and comparison",
+          focusTag5: "Research tooling in Python",
+          workTitle: "ស្នាដៃជ្រើសរើស",
+          workIntro:
+            "នេះជាឧបករណ៍តំណាងពី workflow វិស្វកម្មស្រាវជ្រាវរបស់ខ្ញុំ។ paper code ដែលកំពុងដំណើរការ និង unpublished experiments នៅតែរក្សាទុកជាឯកជន ខណៈដែល public repositories បង្ហាញតែ reusable infrastructure និង reporting patterns។",
+          workCard1Title: "Experiment Pipeline Template",
+          workCard1Desc:
+            "ML experiment scaffold ដែលមាន configuration management, run tracking និង reproducible outputs។",
+          workCard2Title: "Evaluation Toolkit",
+          workCard2Desc:
+            "ឧបករណ៍សម្រាប់ metric computation, split management និង comparison tables ក្នុង model evaluation។",
+          workCard3Title: "Reporting Pipeline",
+          workCard3Desc:
+            "reporting workflow ស្វ័យប្រវត្តិសម្រាប់ result summaries និង audit-ready comparison reports ពី experiment logs។",
+          stackTitle: "បណ្ដុំបច្ចេកវិទ្យា",
+          stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL",
+          researchTitle: "កំណត់ចំណាំស្រាវជ្រាវ",
+          researchDesc:
+            "manuscript code, unpublished experiments និង submission artifacts ដែលកំពុងដំណើរការ ត្រូវបានរក្សាទុកជាឯកជន តាមកម្រិតកំណត់នៃការស្រាវជ្រាវ និងការបោះពុម្ពផ្សាយ។ Public repositories បង្ហាញតែ sanitized workflow components និង reusable engineering patterns។ publication-linked source code នឹងត្រូវបញ្ចេញនៅពេល venue ឬ journal policies អនុញ្ញាត។",
+          contactTitle: "ទំនាក់ទំនង និងតំណភ្ជាប់"
         }
       };
 
+      const supportedLanguages = ["en", "ko", "km"];
+
+      function getSupportedLanguage(language) {
+        return supportedLanguages.includes(language) ? language : "en";
+      }
+
+      function getNextLanguage(language) {
+        const currentIndex = supportedLanguages.indexOf(getSupportedLanguage(language));
+        return supportedLanguages[(currentIndex + 1) % supportedLanguages.length];
+      }
+
       let currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-      let currentLanguage = document.documentElement.lang === "ko" ? "ko" : "en";
+      let currentLanguage = getSupportedLanguage(document.documentElement.lang);
 
       function updateThemeToggleUI() {
         if (themeToggleIcon) {
@@ -305,7 +371,7 @@
       }
 
       function applyLanguage(language) {
-        currentLanguage = language === "ko" ? "ko" : "en";
+        currentLanguage = getSupportedLanguage(language);
         document.documentElement.lang = currentLanguage;
         const dict = translations[currentLanguage];
 
@@ -325,9 +391,6 @@
 
         if (langToggleValue) {
           langToggleValue.textContent = dict.langShortLabel;
-        }
-        if (langToggle) {
-          langToggle.setAttribute("aria-pressed", String(currentLanguage === "ko"));
         }
       }
 
@@ -353,9 +416,7 @@
           }
         });
 
-        const desktopMediaQuery = window.matchMedia(
-          `(min-width: ${mobileBreakpoint + 1}px)`
-        );
+        const desktopMediaQuery = window.matchMedia(`(min-width: ${mobileBreakpoint + 1}px)`);
         const closeOnDesktop = (event) => {
           if (event.matches) {
             closeMobileNav();
@@ -378,7 +439,7 @@
 
       if (langToggle) {
         langToggle.addEventListener("click", () => {
-          const nextLanguage = currentLanguage === "ko" ? "en" : "ko";
+          const nextLanguage = getNextLanguage(currentLanguage);
           applyLanguage(nextLanguage);
           try {
             localStorage.setItem("language", nextLanguage);
