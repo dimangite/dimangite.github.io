@@ -83,8 +83,9 @@
             >
           </h1>
           <p class="lead" data-i18n="heroLead">
-            I build Python-based workflows for disciplined benchmarking, transparent reporting,
-            and reliable experimentation in machine learning.
+            I build Python-based workflows for structured ML experimentation — disciplined
+            benchmarking, systematic evaluation, and reproducible reporting across the modeling
+            pipeline.
           </p>
         </div>
       </section>
@@ -94,10 +95,10 @@
           <h2 id="focus-title" data-i18n="focusTitle">Current Focus</h2>
           <ul class="tag-list">
             <li data-i18n="focusTag1">Predictive modeling</li>
-            <li data-i18n="focusTag2">Benchmarking discipline</li>
+            <li data-i18n="focusTag2">Benchmark design</li>
             <li data-i18n="focusTag3">Reproducible ML workflows</li>
-            <li data-i18n="focusTag4">Evaluation and reporting</li>
-            <li data-i18n="focusTag5">Python research engineering</li>
+            <li data-i18n="focusTag4">Model evaluation and comparison</li>
+            <li data-i18n="focusTag5">Research tooling in Python</li>
           </ul>
         </div>
       </section>
@@ -105,28 +106,24 @@
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="container">
           <h2 id="work-title" data-i18n="workTitle">Selected Work</h2>
+          <p data-i18n="workIntro">Public-facing components drawn from my research engineering workflow. Active research code remains private; these represent sanitized patterns and tooling.</p>
           <ul class="card-grid">
             <li class="card">
               <article>
-                <h3 data-i18n="workCard1Title">Public Engineering Demo</h3>
-                <p data-i18n="workCard1Desc">Reproducible implementation and workflow example.</p>
-                <!-- TODO: Replace with a real repository name and URL for a public demo project. -->
+                <h3 data-i18n="workCard1Title">Experiment Pipeline Template</h3>
+                <p data-i18n="workCard1Desc">Structured project scaffold for ML experiments with configuration management, reproducible training runs, and standardized result logging.</p>
               </article>
             </li>
             <li class="card">
               <article>
-                <h3 data-i18n="workCard2Title">Evaluation/Reporting Tooling</h3>
-                <p data-i18n="workCard2Desc">
-                  Sanitized tooling for ML experiment analysis and reporting.
-                </p>
-                <!-- TODO: Replace with a real repository name and URL for evaluation/reporting tooling. -->
+                <h3 data-i18n="workCard2Title">Evaluation Toolkit</h3>
+                <p data-i18n="workCard2Desc">Utilities for computing metrics across model variants, handling cross-validation splits, and generating performance comparison tables.</p>
               </article>
             </li>
             <li class="card">
               <article>
-                <h3 data-i18n="workCard3Title">Reproducibility Workflow</h3>
-                <p data-i18n="workCard3Desc">Pipeline-oriented setup for repeatable ML experiments.</p>
-                <!-- TODO: Replace with a real repository name and URL for a reproducibility-focused project. -->
+                <h3 data-i18n="workCard3Title">Reporting Pipeline</h3>
+                <p data-i18n="workCard3Desc">Automated generation of result summaries and comparison reports from experiment logs, designed for reproducibility audits and paper preparation.</p>
               </article>
             </li>
           </ul>
@@ -144,9 +141,11 @@
         <div class="container">
           <h2 id="research-title" data-i18n="researchTitle">Research Note</h2>
           <p data-i18n="researchDesc">
-            Active publication work and paper code remain private due to research constraints.
-            Public repositories focus on sanitized implementations, tooling, and reproducible
-            workflows.
+            Active research — including paper submissions, experiment code, and unpublished
+            results — remains in private repositories under standard academic constraints.
+            Public repositories contain sanitized tooling and workflow components extracted from
+            my research infrastructure. Source code supporting publications will be released as
+            journal policies permit.
           </p>
         </div>
       </section>
@@ -181,7 +180,6 @@
             <span class="visually-hidden" data-i18n="langToggleLabel">Toggle language</span>
           </button>
         </div>
-        <!-- TODO: Add a second external contact/profile link (e.g., institutional page or email). -->
       </div>
     </footer>
     <script>
@@ -215,25 +213,30 @@
           heroEyebrow: "CS PhD Student",
           heroTitle: "Predictive modeling, ML evaluation, and reproducible research engineering.",
           heroLead:
-            "I build Python-based workflows for disciplined benchmarking, transparent reporting, and reliable experimentation in machine learning.",
+            "I build Python-based workflows for structured ML experimentation \u2014 disciplined benchmarking, systematic evaluation, and reproducible reporting across the modeling pipeline.",
           focusTitle: "Current Focus",
           focusTag1: "Predictive modeling",
-          focusTag2: "Benchmarking discipline",
+          focusTag2: "Benchmark design",
           focusTag3: "Reproducible ML workflows",
-          focusTag4: "Evaluation and reporting",
-          focusTag5: "Python research engineering",
+          focusTag4: "Model evaluation and comparison",
+          focusTag5: "Research tooling in Python",
           workTitle: "Selected Work",
-          workCard1Title: "Public Engineering Demo",
-          workCard1Desc: "Reproducible implementation and workflow example.",
-          workCard2Title: "Evaluation/Reporting Tooling",
-          workCard2Desc: "Sanitized tooling for ML experiment analysis and reporting.",
-          workCard3Title: "Reproducibility Workflow",
-          workCard3Desc: "Pipeline-oriented setup for repeatable ML experiments.",
+          workIntro:
+            "Public-facing components drawn from my research engineering workflow. Active research code remains private; these represent sanitized patterns and tooling.",
+          workCard1Title: "Experiment Pipeline Template",
+          workCard1Desc:
+            "Structured project scaffold for ML experiments with configuration management, reproducible training runs, and standardized result logging.",
+          workCard2Title: "Evaluation Toolkit",
+          workCard2Desc:
+            "Utilities for computing metrics across model variants, handling cross-validation splits, and generating performance comparison tables.",
+          workCard3Title: "Reporting Pipeline",
+          workCard3Desc:
+            "Automated generation of result summaries and comparison reports from experiment logs, designed for reproducibility audits and paper preparation.",
           stackTitle: "Tech Stack",
           stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX",
           researchTitle: "Research Note",
           researchDesc:
-            "Active publication work and paper code remain private due to research constraints. Public repositories focus on sanitized implementations, tooling, and reproducible workflows.",
+            "Active research \u2014 including paper submissions, experiment code, and unpublished results \u2014 remains in private repositories under standard academic constraints. Public repositories contain sanitized tooling and workflow components extracted from my research infrastructure. Source code supporting publications will be released as journal policies permit.",
           contactTitle: "Contact & Links"
         },
         ko: {
@@ -255,25 +258,30 @@
           heroEyebrow: "컴퓨터공학 박사과정",
           heroTitle: "예측 모델링, ML 평가, 그리고 재현 가능한 연구 엔지니어링.",
           heroLead:
-            "머신러닝 실험을 위해 체계적인 벤치마킹, 투명한 보고, 신뢰할 수 있는 재현 과정을 갖춘 Python 기반 워크플로를 구축합니다.",
+            "체계적인 ML 실험을 위한 Python 기반 워크플로를 구축합니다 \u2014 벤치마크 설계, 체계적 평가, 모델링 파이프라인 전반의 재현 가능한 리포팅.",
           focusTitle: "현재 집중 분야",
           focusTag1: "예측 모델링",
-          focusTag2: "벤치마킹 원칙",
+          focusTag2: "벤치마크 설계",
           focusTag3: "재현 가능한 ML 워크플로",
-          focusTag4: "평가 및 리포팅",
-          focusTag5: "Python 연구 엔지니어링",
+          focusTag4: "모델 평가 및 비교",
+          focusTag5: "Python 기반 연구 도구 개발",
           workTitle: "주요 작업",
-          workCard1Title: "공개 엔지니어링 데모",
-          workCard1Desc: "재현 가능한 구현 및 워크플로 예시.",
-          workCard2Title: "평가/리포팅 도구",
-          workCard2Desc: "ML 실험 분석 및 보고를 위한 정제된 도구.",
-          workCard3Title: "재현성 워크플로",
-          workCard3Desc: "반복 가능한 ML 실험을 위한 파이프라인 중심 구성.",
+          workIntro:
+            "연구 엔지니어링 워크플로에서 추출한 공개용 구성 요소입니다. 진행 중인 연구 코드는 비공개이며, 정제된 패턴과 도구를 나타냅니다.",
+          workCard1Title: "실험 파이프라인 템플릿",
+          workCard1Desc:
+            "구성 관리, 재현 가능한 학습 실행, 표준화된 결과 로깅을 갖춘 ML 실험용 프로젝트 스캐폴드.",
+          workCard2Title: "평가 도구",
+          workCard2Desc:
+            "모델 변형 간 지표 계산, 교차 검증 분할 처리, 성능 비교표 생성을 위한 유틸리티.",
+          workCard3Title: "리포팅 파이프라인",
+          workCard3Desc:
+            "실험 로그에서 결과 요약 및 비교 보고서를 자동 생성합니다. 재현성 검증과 논문 준비를 위해 설계되었습니다.",
           stackTitle: "기술 스택",
           stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX",
           researchTitle: "연구 노트",
           researchDesc:
-            "연구 제약으로 인해 진행 중인 출판 작업과 논문 코드는 비공개입니다. 공개 저장소는 정제된 구현, 도구, 재현 가능한 워크플로에 중점을 둡니다.",
+            "논문 투고, 실험 코드, 미발표 결과를 포함한 진행 중인 연구는 학술적 제약에 따라 비공개 저장소에 보관됩니다. 공개 저장소에는 연구 인프라에서 추출한 정제된 도구와 워크플로 구성 요소가 포함됩니다. 출판물 관련 소스 코드는 학술지 정책이 허용하는 범위 내에서 공개될 예정입니다.",
           contactTitle: "연락처 및 링크"
         }
       };
