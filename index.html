@@ -38,28 +38,6 @@
     <header class="site-header" id="top">
       <div class="container header-inner">
         <p class="site-name">Dimang Chhol</p>
-        <div class="header-actions">
-          <button
-            class="control-btn"
-            id="theme-toggle"
-            type="button"
-            aria-pressed="false"
-            data-i18n-attr-aria-label="themeToggleAria"
-          >
-            <span data-i18n="themeTogglePrefix">Theme</span>:
-            <span id="theme-toggle-value"></span>
-          </button>
-          <button
-            class="control-btn"
-            id="lang-toggle"
-            type="button"
-            aria-pressed="false"
-            data-i18n-attr-aria-label="langToggleAria"
-          >
-            <span data-i18n="langTogglePrefix">Language</span>:
-            <span id="lang-toggle-value"></span>
-          </button>
-        </div>
         <button
           class="nav-toggle"
           type="button"
@@ -174,12 +152,35 @@
       </section>
     </main>
 
-    <footer class="section" id="contact" aria-labelledby="contact-title">
+    <footer class="section site-footer" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <h2 id="contact-title" data-i18n="contactTitle">Contact & Links</h2>
         <ul class="link-list">
           <li><a href="https://github.com/dimangite">GitHub</a></li>
         </ul>
+        <div class="footer-controls">
+          <button
+            class="icon-control"
+            id="theme-toggle"
+            type="button"
+            aria-pressed="false"
+            data-i18n-attr-aria-label="themeToggleAria"
+          >
+            <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+            <span class="visually-hidden" data-i18n="themeToggleLabel">Toggle theme</span>
+          </button>
+          <button
+            class="icon-control"
+            id="lang-toggle"
+            type="button"
+            aria-pressed="false"
+            data-i18n-attr-aria-label="langToggleAria"
+          >
+            <span aria-hidden="true">🌐</span>
+            <span id="lang-toggle-value" aria-hidden="true">EN</span>
+            <span class="visually-hidden" data-i18n="langToggleLabel">Toggle language</span>
+          </button>
+        </div>
         <!-- TODO: Add a second external contact/profile link (e.g., institutional page or email). -->
       </div>
     </footer>
@@ -187,7 +188,7 @@
       const navToggle = document.querySelector(".nav-toggle");
       const mobileNav = document.getElementById("mobile-nav");
       const themeToggle = document.getElementById("theme-toggle");
-      const themeToggleValue = document.getElementById("theme-toggle-value");
+      const themeToggleIcon = document.getElementById("theme-toggle-icon");
       const langToggle = document.getElementById("lang-toggle");
       const langToggleValue = document.getElementById("lang-toggle-value");
       const i18nElements = document.querySelectorAll("[data-i18n]");
@@ -196,11 +197,9 @@
       const translations = {
         en: {
           skipLink: "Skip to main content",
-          themeTogglePrefix: "Theme",
+          themeToggleLabel: "Toggle theme",
           themeToggleAria: "Toggle light and dark theme",
-          lightLabel: "Light",
-          darkLabel: "Dark",
-          langTogglePrefix: "Language",
+          langToggleLabel: "Toggle language",
           langToggleAria: "Toggle language between English and Korean",
           navToggleLabel: "Toggle navigation",
           navToggleAria: "Toggle navigation menu",
@@ -237,11 +236,9 @@
         },
         ko: {
           skipLink: "본문으로 건너뛰기",
-          themeTogglePrefix: "테마",
+          themeToggleLabel: "테마 전환",
           themeToggleAria: "라이트와 다크 테마 전환",
-          lightLabel: "라이트",
-          darkLabel: "다크",
-          langTogglePrefix: "언어",
+          langToggleLabel: "언어 전환",
           langToggleAria: "영어와 한국어 전환",
           navToggleLabel: "내비게이션 전환",
           navToggleAria: "내비게이션 메뉴 전환",
@@ -281,20 +278,19 @@
       let currentTheme = document.documentElement.getAttribute("data-theme") || "light";
       let currentLanguage = document.documentElement.lang === "ko" ? "ko" : "en";
 
-      function updateThemeToggleLabel() {
-        if (themeToggleValue) {
-          themeToggleValue.textContent =
-            translations[currentLanguage][currentTheme === "dark" ? "darkLabel" : "lightLabel"];
+      function updateThemeToggleUI() {
+        if (themeToggleIcon) {
+          themeToggleIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+        }
+        if (themeToggle) {
+          themeToggle.setAttribute("aria-pressed", String(currentTheme === "dark"));
         }
       }
 
       function applyTheme(theme) {
         currentTheme = theme === "dark" ? "dark" : "light";
         document.documentElement.setAttribute("data-theme", currentTheme);
-        updateThemeToggleLabel();
-        if (themeToggle) {
-          themeToggle.setAttribute("aria-pressed", String(currentTheme === "dark"));
-        }
+        updateThemeToggleUI();
       }
 
       function applyLanguage(language) {
@@ -322,23 +318,42 @@
         if (langToggle) {
           langToggle.setAttribute("aria-pressed", String(currentLanguage === "ko"));
         }
-        updateThemeToggleLabel();
+        updateThemeToggleUI();
+      }
+
+      function closeMobileNav() {
+        if (!mobileNav || !navToggle) return;
+        mobileNav.hidden = true;
+        navToggle.setAttribute("aria-expanded", "false");
       }
 
       if (navToggle && mobileNav) {
+        closeMobileNav();
+
         navToggle.addEventListener("click", () => {
-          const isOpen = navToggle.getAttribute("aria-expanded") === "true";
-          navToggle.setAttribute("aria-expanded", String(!isOpen));
-          mobileNav.hidden = isOpen;
+          const willOpen = mobileNav.hidden;
+          mobileNav.hidden = !willOpen;
+          navToggle.setAttribute("aria-expanded", String(willOpen));
         });
 
         mobileNav.addEventListener("click", (event) => {
           if (event.target.closest("a")) {
-            navToggle.setAttribute("aria-expanded", "false");
-            mobileNav.hidden = true;
+            closeMobileNav();
             navToggle.focus();
           }
         });
+
+        const desktopMediaQuery = window.matchMedia("(min-width: 769px)");
+        const closeOnDesktop = (event) => {
+          if (event.matches) {
+            closeMobileNav();
+          }
+        };
+        if (desktopMediaQuery.addEventListener) {
+          desktopMediaQuery.addEventListener("change", closeOnDesktop);
+        } else if (desktopMediaQuery.addListener) {
+          desktopMediaQuery.addListener(closeOnDesktop);
+        }
       }
 
       if (themeToggle) {
@@ -365,6 +380,7 @@
         });
       }
 
+      applyTheme(currentTheme);
       applyLanguage(currentLanguage);
     </script>
   </body>
