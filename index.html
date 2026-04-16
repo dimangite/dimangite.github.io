@@ -16,7 +16,16 @@
     <header class="site-header" id="top">
       <div class="container header-inner">
         <p class="site-name">Dimang Chhol</p>
-        <nav aria-label="Primary">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <span class="visually-hidden">Toggle navigation</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav class="desktop-nav" aria-label="Primary">
           <ul class="nav-list">
             <li><a href="#about">About</a></li>
             <li><a href="#focus">Focus</a></li>
@@ -27,6 +36,18 @@
           </ul>
         </nav>
       </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+        <div class="container">
+          <ul class="nav-list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#focus">Focus</a></li>
+            <li><a href="#work">Selected Work</a></li>
+            <li><a href="#stack">Tech Stack</a></li>
+            <li><a href="#research">Research Note</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main id="main-content">
@@ -113,5 +134,24 @@
         <!-- TODO: Add a second external contact/profile link (e.g., institutional page or email). -->
       </div>
     </footer>
+    <script>
+      const navToggle = document.querySelector(".nav-toggle");
+      const mobileNav = document.getElementById("mobile-nav");
+
+      if (navToggle && mobileNav) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+          navToggle.setAttribute("aria-expanded", String(!isOpen));
+          mobileNav.hidden = isOpen;
+        });
+
+        mobileNav.addEventListener("click", (event) => {
+          if (event.target.closest("a")) {
+            navToggle.setAttribute("aria-expanded", "false");
+            mobileNav.hidden = true;
+          }
+        });
+      }
+    </script>
   </body>
 </html>
