@@ -380,6 +380,7 @@ h2 {
   margin: 0.4rem 0 0;
   font-size: 0.88rem;
   font-weight: 600;
+  color: var(--muted);
 }
 
 .timeline-awards-list {
@@ -412,6 +413,8 @@ h2 {
 }
 
 .award-name {
+  flex: 1;
+  min-width: 0;
   overflow-wrap: anywhere;
 }
 
@@ -436,6 +439,7 @@ h2 {
 .site-footer {
   border-top: 1px solid var(--border);
   background: var(--surface);
+  padding: 2rem 0;
 }
 
 .contact-links {
@@ -606,6 +610,10 @@ h2 {
 @media (max-width: 640px) {
   .section {
     padding: 2.25rem 0;
+  }
+
+  .header-inner {
+    padding: 0.65rem 0;
   }
 
   .hero {
