@@ -6,6 +6,7 @@
   --muted: #4e5b70;
   --border: #d8dde5;
   --accent: #2f5eb8;
+  --accent-rgb: 47, 94, 184;
   --maxw: 960px;
   --radius: 12px;
   --shadow: 0 4px 20px rgba(17, 24, 39, 0.05);
@@ -19,6 +20,7 @@
   --muted: #b7c3d8;
   --border: #2c3a52;
   --accent: #9ec1ff;
+  --accent-rgb: 158, 193, 255;
   --shadow: 0 8px 24px rgba(5, 8, 15, 0.4);
 }
 
@@ -115,7 +117,7 @@ a:focus-visible {
 
 .control-btn[aria-pressed="true"] {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(47, 94, 184, 0.2);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.25);
 }
 
 .control-btn:focus-visible,

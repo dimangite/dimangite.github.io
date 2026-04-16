@@ -10,17 +10,23 @@
     />
     <script>
       (function () {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         try {
           const storedTheme = localStorage.getItem("theme");
+          const safeTheme = storedTheme === "dark" || storedTheme === "light" ? storedTheme : null;
           const preferredTheme =
-            storedTheme ||
-            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+            safeTheme || (prefersDark ? "dark" : "light");
           document.documentElement.setAttribute("data-theme", preferredTheme);
+          const storedLanguage = localStorage.getItem("language");
+          const safeLanguage =
+            storedLanguage === "ko" || storedLanguage === "en" ? storedLanguage : "en";
+          document.documentElement.lang = safeLanguage;
         } catch (error) {
           document.documentElement.setAttribute(
             "data-theme",
-            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+            prefersDark ? "dark" : "light"
           );
+          document.documentElement.lang = "en";
         }
       })();
     </script>
@@ -41,7 +47,7 @@
             data-i18n-attr-aria-label="themeToggleAria"
           >
             <span data-i18n="themeTogglePrefix">Theme</span>:
-            <span id="theme-toggle-value">Light</span>
+            <span id="theme-toggle-value"></span>
           </button>
           <button
             class="control-btn"
@@ -51,7 +57,7 @@
             data-i18n-attr-aria-label="langToggleAria"
           >
             <span data-i18n="langTogglePrefix">Language</span>:
-            <span id="lang-toggle-value">EN</span>
+            <span id="lang-toggle-value"></span>
           </button>
         </div>
         <button
