@@ -412,7 +412,22 @@
               aria-pressed="false"
               data-i18n-attr-aria-label="themeToggleAria"
             >
-              <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+              <span id="theme-toggle-icon" aria-hidden="true">
+                <svg
+                  class="theme-toggle-icon"
+                  viewBox="0 0 24 24"
+                  width="14"
+                  height="14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  focusable="false"
+                >
+                  <path d="M20 14.2A8 8 0 1 1 9.8 4a6.2 6.2 0 1 0 10.2 10.2Z" />
+                </svg>
+              </span>
               <span class="visually-hidden" data-i18n="themeToggleLabel">Toggle theme</span>
             </button>
             <button
@@ -699,10 +714,41 @@
 
       let currentTheme = document.documentElement.getAttribute("data-theme") || "light";
       let currentLanguage = getSupportedLanguage(document.documentElement.lang);
+      const moonIcon = `
+        <svg
+          class="theme-toggle-icon"
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          focusable="false"
+        >
+          <path d="M20 14.2A8 8 0 1 1 9.8 4a6.2 6.2 0 1 0 10.2 10.2Z" />
+        </svg>`;
+      const sunIcon = `
+        <svg
+          class="theme-toggle-icon"
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          focusable="false"
+        >
+          <circle cx="12" cy="12" r="4.25" />
+          <path d="M12 2.75v2.2M12 19.05v2.2M2.75 12h2.2M19.05 12h2.2M5.45 5.45l1.55 1.55M17 17l1.55 1.55M18.55 5.45 17 7M7 17l-1.55 1.55" />
+        </svg>`;
 
       function updateThemeToggleUI() {
         if (themeToggleIcon) {
-          themeToggleIcon.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+          themeToggleIcon.innerHTML = currentTheme === "dark" ? sunIcon : moonIcon;
         }
         if (themeToggle) {
           themeToggle.setAttribute("aria-pressed", String(currentTheme === "dark"));

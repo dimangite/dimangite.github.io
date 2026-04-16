@@ -200,6 +200,20 @@ a:focus-visible {
   cursor: pointer;
 }
 
+#theme-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.theme-toggle-icon {
+  width: 0.92rem;
+  height: 0.92rem;
+  display: block;
+  flex: none;
+}
+
 .icon-control[aria-pressed="true"] {
   background: var(--accent);
   color: var(--bg);
