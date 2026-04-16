@@ -208,6 +208,7 @@
           themeToggleAria: "Toggle light and dark theme",
           langToggleLabel: "Toggle language",
           langToggleAria: "Toggle language between English and Korean",
+          langShortLabel: "EN",
           navToggleLabel: "Toggle navigation",
           navToggleAria: "Toggle navigation menu",
           mobileMenuAria: "Mobile menu",
@@ -247,6 +248,7 @@
           themeToggleAria: "라이트와 다크 테마 전환",
           langToggleLabel: "언어 전환",
           langToggleAria: "영어와 한국어 전환",
+          langShortLabel: "KO",
           navToggleLabel: "내비게이션 전환",
           navToggleAria: "내비게이션 메뉴 전환",
           mobileMenuAria: "모바일 메뉴",
@@ -320,12 +322,11 @@
         });
 
         if (langToggleValue) {
-          langToggleValue.textContent = currentLanguage === "ko" ? "KO" : "EN";
+          langToggleValue.textContent = dict.langShortLabel || "EN";
         }
         if (langToggle) {
           langToggle.setAttribute("aria-pressed", String(currentLanguage === "ko"));
         }
-        updateThemeToggleUI();
       }
 
       function closeMobileNav() {
