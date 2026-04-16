@@ -1,19 +1,35 @@
-# Dimang Chhol
+# dimangite.github.io
 
-CS PhD student working on machine learning for predictive modeling and reproducible ML workflows.
+Public GitHub Pages portfolio for Dimang Chhol, a CS PhD student focused on predictive modeling, ML evaluation, and reproducible research engineering.
 
-## Current focus
-- Predictive modeling
-- Experiment reproducibility
-- ML evaluation and reporting
-- Python-based research engineering
+## Overview
+This repository hosts a minimal static portfolio site. It presents public-facing research engineering capabilities while keeping active SCI manuscript code, unpublished experiments, and submission artifacts private.
 
 ## Tech stack
-Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL, LaTeX
+- HTML5
+- CSS3
+- Vanilla JavaScript (theme, language switch, responsive navigation)
+- GitHub Pages (Jekyll-based deployment workflow)
 
-## Selected work
-- Portfolio website: <a href="https://dimangite.github.io">dimangite.github.io</a>
-- Public engineering demos and tooling: see pinned repositories
+## Features
+- Professional single-page portfolio structure
+- Light/dark theme toggle with persisted preference
+- Multilingual UI: English (EN), Korean (KO), Khmer (KM)
+- Mobile navigation and keyboard-accessible primary controls
 
-## Research
-I currently work on private research projects related to industrial predictive modeling and ML experimentation. Public repositories here focus on sanitized implementations, tooling, and reproducible workflows rather than unpublished paper artifacts.
+## Local preview
+Run a local static server from the repository root:
+
+```bash
+python -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
+
+## Deployment (GitHub Pages)
+Live site: **https://dimangite.github.io**
+
+The site is deployed through `.github/workflows/deploy.yml` on pushes to `main` and manual `workflow_dispatch`.
+
+## Language support note
+EN, KO, and KM content are maintained in the inline translation dictionary in `index.html`. Keep all three in sync when updating visible text.
