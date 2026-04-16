@@ -116,8 +116,11 @@ a:focus-visible {
 }
 
 .control-btn[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--bg);
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.25);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.28);
+  font-weight: 600;
 }
 
 .control-btn:focus-visible,
