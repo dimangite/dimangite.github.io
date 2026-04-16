@@ -13,8 +13,7 @@
   --font-en: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-ko: "Apple SD Gothic Neo", "Malgun Gothic", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Helvetica Neue", Arial, sans-serif;
-  --font-km: "Khmer Sangam MN", "Noto Sans Khmer", "Leelawadee UI", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-km: "Noto Sans Khmer", "Noto Sans Khmer UI", "Khmer UI", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-ui: var(--font-en);
 }
 
@@ -50,6 +49,50 @@ html[lang="ko"] {
 
 html[lang="km"] {
   --font-ui: var(--font-km);
+  text-rendering: optimizeLegibility;
+}
+
+html[lang="km"] body {
+  line-height: 1.72;
+}
+
+html[lang="km"] h1,
+html[lang="km"] h2,
+html[lang="km"] h3,
+html[lang="km"] h4 {
+  line-height: 1.4;
+}
+
+html[lang="km"] h1 {
+  max-width: 24ch;
+  overflow-wrap: anywhere;
+}
+
+html[lang="km"] .lead {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+html[lang="km"] .tag-list li {
+  white-space: normal;
+  line-height: 1.45;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+html[lang="km"] .timeline-heading,
+html[lang="km"] .timeline-meta,
+html[lang="km"] .timeline-role,
+html[lang="km"] #privacy p,
+html[lang="km"] .contact-link,
+html[lang="km"] .footer-privacy-link {
+  line-height: 1.65;
+}
+
+html[lang="km"] .timeline-heading,
+html[lang="km"] .timeline-meta,
+html[lang="km"] .timeline-role {
+  overflow-wrap: anywhere;
 }
 
 body {
@@ -664,5 +707,19 @@ h2 {
 
   .timeline-date {
     font-size: 0.8rem;
+  }
+
+  html[lang="km"] h1 {
+    line-height: 1.32;
+  }
+
+  html[lang="km"] .lead {
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  html[lang="km"] .tag-list li {
+    padding: 0.4rem 0.68rem;
+    font-size: 0.9rem;
   }
 }

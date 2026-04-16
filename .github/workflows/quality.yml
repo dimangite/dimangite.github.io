@@ -1,0 +1,40 @@
+name: Static Quality Checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Basic HTML sanity checks
+        run: |
+          set -euo pipefail
+          for file in index.html privacy.html; do
+            grep -qi '<!doctype html>' "$file"
+            grep -qi '<html' "$file"
+            grep -qi '<meta charset=' "$file"
+            grep -qi '<meta name="viewport"' "$file"
+            grep -qi '<title>' "$file"
+          done
+
+      - name: Offline link checks (docs and local references)
+        # Keep checks lightweight and low-noise for a static portfolio repo.
+        # --offline avoids flaky external-network failures while still validating local links.
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --offline
+            --no-progress
+            --base .
+            README.md ARCHITECTURE.md CHANGELOG.md index.html privacy.html
+          fail: true
