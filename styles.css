@@ -293,7 +293,7 @@ h2 {
 }
 
 .timeline-group + .timeline-group {
-  margin-top: 1.7rem;
+  margin-top: 2.25rem;
 }
 
 .timeline-group-title {
@@ -318,13 +318,13 @@ h2 {
   top: 0.2rem;
   bottom: 0.35rem;
   left: 0.38rem;
-  width: 2px;
+  width: 1px;
   background: var(--border);
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 0.85rem;
+  margin-bottom: 1.1rem;
 }
 
 .timeline-item:last-child {
@@ -333,22 +333,17 @@ h2 {
 
 .timeline-marker {
   position: absolute;
-  top: 0.95rem;
+  top: 0.5rem;
   left: -1.09rem;
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  border: 1.5px solid var(--accent);
-  background: var(--surface);
-  box-shadow: 0 0 0 1.5px var(--bg);
+  background: var(--muted);
 }
 
 .timeline-content {
   min-width: 0;
-  padding: 0.78rem 0.9rem 0.82rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  padding: 0.15rem 0 0.55rem;
 }
 
 .timeline-date {
@@ -378,14 +373,43 @@ h2 {
   overflow-wrap: anywhere;
 }
 
-.timeline-award-meta {
-  margin: 0.24rem 0 0;
-  color: var(--muted);
+.timeline-group-institution {
+  margin: 0.4rem 0 0;
   font-size: 0.88rem;
+  font-weight: 600;
 }
 
-.timeline-award-name {
-  font-size: 0.92rem;
+.timeline-awards-list {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.timeline-award-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.9rem;
+  padding: 0.42rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  align-items: baseline;
+}
+
+.award-year {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 2.8rem;
+  flex: none;
+}
+
+.award-sem {
+  color: var(--muted);
+  flex: none;
+}
+
+.award-name {
+  overflow-wrap: anywhere;
 }
 
 .timeline-link-row {
@@ -395,9 +419,15 @@ h2 {
 .timeline-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.28rem;
-  font-size: 0.86rem;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--muted);
   overflow-wrap: anywhere;
+}
+
+.timeline-link:hover,
+.timeline-link:focus-visible {
+  color: var(--accent);
 }
 
 .timeline-link-icon {
@@ -411,17 +441,9 @@ h2 {
   background: var(--surface);
 }
 
-.contact-panel {
-  margin-top: 0.85rem;
-  padding: 0.95rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
 .contact-links {
   list-style: none;
-  margin: 0;
+  margin: 0.85rem 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -454,34 +476,44 @@ h2 {
   flex: none;
 }
 
-.contact-link--policy {
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-.footer-meta {
-  margin-top: 0.8rem;
+.footer-bottom {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.65rem 1rem;
+  gap: 0.5rem 1rem;
 }
 
-.footer-verification {
-  margin: 0;
+.footer-privacy-link {
+  font-size: 0.82rem;
   color: var(--muted);
-  font-size: 0.9rem;
+  text-decoration: none;
 }
 
-.footer-verification a {
+.footer-privacy-link:hover,
+.footer-privacy-link:focus-visible {
   color: var(--accent);
 }
 
 .footer-controls {
   display: flex;
   gap: 0.5rem;
-  padding-top: 0;
+}
+
+.research-verification {
+  font-size: 0.82rem;
+}
+
+.research-verification a {
+  color: var(--muted);
+}
+
+.research-verification a:hover,
+.research-verification a:focus-visible {
+  color: var(--accent);
 }
 
 .privacy-section p + p {
@@ -515,7 +547,7 @@ h2 {
   }
 
   .timeline-date {
-    margin: 0.42rem 0 0;
+    margin: 0;
   }
 }
 
@@ -557,7 +589,7 @@ h2 {
     padding: 0.2rem 0;
   }
 
-  .footer-meta {
+  .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -611,7 +643,7 @@ h2 {
   }
 
   .timeline-content {
-    padding: 0.72rem 0.8rem 0.75rem;
+    padding: 0.1rem 0 0.45rem;
   }
 
   .timeline-date {
