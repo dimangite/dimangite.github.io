@@ -513,24 +513,6 @@ h2 {
   overflow-wrap: anywhere;
 }
 
-.timeline-link-row {
-  margin: 0.32rem 0 0;
-}
-
-.timeline-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.8rem;
-  color: var(--muted);
-  overflow-wrap: anywhere;
-}
-
-.timeline-link:hover,
-.timeline-link:focus-visible {
-  color: var(--accent);
-}
-
 .site-footer {
   border-top: 1px solid var(--border);
   background: var(--surface);
