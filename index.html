@@ -193,6 +193,7 @@
       const langToggleValue = document.getElementById("lang-toggle-value");
       const i18nElements = document.querySelectorAll("[data-i18n]");
       const i18nAttrElements = document.querySelectorAll("[data-i18n-attr-aria-label]");
+      const mobileBreakpoint = 768;
 
       const translations = {
         en: {
@@ -343,15 +344,15 @@
           }
         });
 
-        const desktopMediaQuery = window.matchMedia("(min-width: 769px)");
+        const desktopMediaQuery = window.matchMedia(
+          `(min-width: ${mobileBreakpoint + 1}px)`
+        );
         const closeOnDesktop = (event) => {
           if (event.matches) {
             closeMobileNav();
           }
         };
-        if (desktopMediaQuery.addEventListener) {
-          desktopMediaQuery.addEventListener("change", closeOnDesktop);
-        }
+        desktopMediaQuery.addEventListener("change", closeOnDesktop);
       }
 
       if (themeToggle) {
