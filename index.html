@@ -177,7 +177,7 @@
             data-i18n-attr-aria-label="langToggleAria"
           >
             <span aria-hidden="true">🌐</span>
-            <span id="lang-toggle-value" aria-hidden="true">EN</span>
+            <span id="lang-toggle-value">EN</span>
             <span class="visually-hidden" data-i18n="langToggleLabel">Toggle language</span>
           </button>
         </div>
@@ -193,7 +193,13 @@
       const langToggleValue = document.getElementById("lang-toggle-value");
       const i18nElements = document.querySelectorAll("[data-i18n]");
       const i18nAttrElements = document.querySelectorAll("[data-i18n-attr-aria-label]");
-      const mobileBreakpoint = 768;
+      const mobileBreakpoint =
+        parseInt(
+          getComputedStyle(document.documentElement)
+            .getPropertyValue("--mobile-breakpoint")
+            .trim(),
+          10
+        ) || 768;
 
       const translations = {
         en: {
