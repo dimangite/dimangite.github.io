@@ -322,7 +322,8 @@
         });
 
         if (langToggleValue) {
-          langToggleValue.textContent = dict.langShortLabel || "EN";
+          langToggleValue.textContent =
+            dict.langShortLabel || (currentLanguage === "ko" ? "KO" : "EN");
         }
         if (langToggle) {
           langToggle.setAttribute("aria-pressed", String(currentLanguage === "ko"));

@@ -312,7 +312,7 @@ h2 {
   }
 
   .mobile-nav[hidden] {
-    display: none !important;
+    display: none;
   }
 
   .mobile-nav .nav-list {
