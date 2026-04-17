@@ -39,4 +39,4 @@ jobs:
             --offline \
             --no-progress \
             --base /repo \
-            README.md ARCHITECTURE.md CHANGELOG.md index.html privacy.html || exit 1
+            README.md ARCHITECTURE.md CHANGELOG.md index.html privacy.html
