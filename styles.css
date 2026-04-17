@@ -493,6 +493,10 @@ h2 {
 
 .thesis-grid .card {
   grid-column: 1 / -1;
+  width: 100%;
+  max-width: 75ch;
+  justify-self: center;
+  text-align: left;
 }
 
 .thesis-label {
@@ -681,19 +685,16 @@ h2 {
 .contact-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.72rem;
+  justify-content: center;
+  width: 2.05rem;
+  height: 2.05rem;
+  padding: 0;
   border: 1px solid var(--border);
   border-radius: 999px;
   color: var(--text);
   background: var(--surface-raised);
   text-decoration: none;
-  font-size: 0.9rem;
-  line-height: 1.2;
-  font-weight: 500;
-  max-width: 100%;
-  min-width: 0;
-  overflow-wrap: anywhere;
+  line-height: 1;
   transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease,
     box-shadow 0.18s ease;
 }
@@ -708,8 +709,8 @@ h2 {
 }
 
 .contact-link-icon {
-  width: 0.92rem;
-  height: 0.92rem;
+  width: 0.95rem;
+  height: 0.95rem;
   flex: none;
 }
 
@@ -719,7 +720,7 @@ h2 {
   border-top: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.45rem;
 }
 
@@ -729,6 +730,7 @@ h2 {
   line-height: 1.55;
   color: var(--muted);
   max-width: 74ch;
+  text-align: center;
 }
 
 .footer-privacy-link {
@@ -765,7 +767,9 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.32rem 0.45rem;
-  align-items: baseline;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .research-verification-label {
