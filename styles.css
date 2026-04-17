@@ -623,16 +623,6 @@ h2 {
   max-width: 74ch;
 }
 
-.footer-utilities {
-  width: 100%;
-  margin-top: 0.15rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
 .footer-privacy-link {
   font-size: 0.8rem;
   color: var(--muted);
@@ -648,6 +638,10 @@ h2 {
 }
 
 .footer-controls {
+  width: 100%;
+  margin-top: 0.15rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -747,10 +741,6 @@ h2 {
     padding: 0.24rem 0;
   }
 
-  .footer-utilities {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
 
 @media (max-width: 640px) {

@@ -67,3 +67,27 @@
   - Desktop and mobile footer layout rules now share one coherent left edge and spacing contract.
   - Dark palette tokens now read neutral dark/slate rather than navy-blue, with clearer surface/header separation.
   - Light mode token values and page structure were kept intact.
+
+## Lighthouse Optimization Pass — Remaining Practical Issues
+
+### Start entry
+- Date/time: 2026-04-17 (current session)
+- Scope: reduce remaining Lighthouse diagnostics with minimal static-safe edits, focusing on render-blocking resources, dependency-chain cost, initial-load main-thread work, and minor DOM simplification while preserving behavior/UI.
+- Files in scope: `index.html`, `styles.css`, `privacy.html`, `plan.md`.
+
+### Completion entry
+- Date/time: 2026-04-17 (current session, same sitting)
+- Findings confirmed:
+  - Render-blocking dependency came mainly from unconditional Google Fonts stylesheet in `<head>` for Khmer typography.
+  - Initial-load JS performed unnecessary full translation pass even in default English state.
+  - Minor DOM wrapper depth remained in selected-work cards and footer control container.
+  - Cache-lifetime tuning is constrained on GitHub Pages for origin headers and third-party font responses.
+- Fixes applied:
+  - `index.html`: removed unconditional Google Fonts `<link rel="stylesheet">` and static preconnects; added guarded `window.ensureKhmerFontLoaded()` to load Khmer font resources only when active language is Khmer (initial or toggled).
+  - `index.html`: optimized `applyLanguage()` to skip full i18n DOM rewrite for first-load default English and only run translation pass when needed.
+  - `index.html`: simplified DOM depth by removing three non-essential `<article>` wrappers inside `.card-grid` and flattening footer utilities wrapper into one `.footer-controls` container.
+  - `styles.css`: moved former `.footer-utilities` structural styles into `.footer-controls` and removed obsolete media rule.
+  - `index.html` and `privacy.html`: aligned dark-mode `theme-color` meta value with current dark token (`#0b0d10`) for correctness.
+- Validation:
+  - `python scripts/check_local_links.py` passed.
+  - `python -m unittest discover -s tests -v` passed (9/9).
