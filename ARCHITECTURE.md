@@ -21,6 +21,12 @@ This repository is a static, single-page portfolio designed for low operational 
   - Builds and deploys to GitHub Pages
 - `.github/workflows/quality.yml`
   - Lightweight quality checks for static HTML sanity and offline link integrity
+  - Executes repository-local link checks via `scripts/check_local_links.py`
+- `scripts/check_local_links.py`
+  - Validates repository-local markdown/HTML links in key site/docs files
+  - Detects missing targets, missing fragment anchors, and path escapes outside repo root
+- `tests/test_check_local_links.py`
+  - Unit-test coverage for slug generation, fragment detection, path resolution, and error reporting
 
 ## Single-page section architecture
 The page is organized into anchored semantic sections:
@@ -78,6 +84,16 @@ This keeps navigation straightforward and supports direct anchor links without c
 - **Constrained-browser resilience:** static content first; behavior enhancements layered on top
 - **Graceful degradation:** core content/navigation remain available even if some scripts fail
 - **Typography resilience:** system-first/fallback-first strategy, including Khmer readability safeguards
+
+## Quality-check architecture
+- Scope remains intentionally lightweight for a static portfolio repository:
+  1. Basic HTML sanity checks in workflow shell steps
+  2. Local link validation through `scripts/check_local_links.py`
+- Link-check inputs are constrained to core public files:
+  - `README.md`, `ARCHITECTURE.md`, `CHANGELOG.md`, `index.html`, `privacy.html`
+- Test strategy:
+  - `tests/test_check_local_links.py` validates the checker’s parsing and failure modes
+  - Local run command: `python -m unittest discover -s tests -v`
 
 ## Maintenance guidance for new translated UI text
 When adding or changing user-facing text:
