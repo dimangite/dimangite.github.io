@@ -29,15 +29,66 @@ jobs:
 
       - name: Offline link checks (docs and local references)
         # Keep checks lightweight and low-noise for a static portfolio repo.
-        # --offline avoids flaky external-network failures while still validating local links.
-        # Shell strict mode propagates lychee non-zero exit codes and fails the job.
+        # Validate only repository-local links to avoid flaky external-network failures.
         run: |
           set -euo pipefail
-          docker run --rm \
-            --volume "$PWD:/repo" \
-            --workdir /repo \
-            lycheeverse/lychee@sha256:8bafa87dc394ebc0370694063466c70eb9f129910429af7533e9cf79c139279d \
-            --offline \
-            --no-progress \
-            --base /repo \
-            README.md ARCHITECTURE.md CHANGELOG.md index.html privacy.html
+          python - <<'PY'
+          import re
+          import sys
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          repo_root = Path(".").resolve()
+          targets = [
+              repo_root / "README.md",
+              repo_root / "ARCHITECTURE.md",
+              repo_root / "CHANGELOG.md",
+              repo_root / "index.html",
+              repo_root / "privacy.html",
+          ]
+
+          markdown_link_pattern = re.compile(r"\[[^\]]*\]\(([^)\s]+)")
+          html_link_pattern = re.compile(r"""(?:href|src)=["']([^"']+)["']""", re.IGNORECASE)
+          ignored_prefixes = ("#", "mailto:", "tel:", "javascript:", "data:")
+          errors = []
+
+          def check_link(raw_link: str, source_file: Path) -> None:
+              link = raw_link.strip()
+              if not link or link.startswith(ignored_prefixes):
+                  return
+              parsed = urlparse(link)
+              if parsed.scheme in ("http", "https"):
+                  return
+
+              path_part = parsed.path
+              if not path_part:
+                  return
+              if path_part.startswith("/"):
+                  candidate = repo_root / path_part.lstrip("/")
+              else:
+                  candidate = (source_file.parent / path_part).resolve()
+
+              try:
+                  candidate.relative_to(repo_root)
+              except ValueError:
+                  errors.append(f"{source_file}: {link} resolves outside repository")
+                  return
+
+              if not candidate.exists():
+                  errors.append(f"{source_file}: missing target for {link}")
+
+          for target in targets:
+              text = target.read_text(encoding="utf-8")
+              for match in markdown_link_pattern.findall(text):
+                  check_link(match, target)
+              for match in html_link_pattern.findall(text):
+                  check_link(match, target)
+
+          if errors:
+              print("Local link check failures:")
+              for error in errors:
+                  print(f"- {error}")
+              sys.exit(1)
+
+          print("Local link checks passed.")
+          PY
