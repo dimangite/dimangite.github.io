@@ -98,3 +98,20 @@
 - Date/time: 2026-04-17T11:11:06Z
 - Scope: root-cause audit and minimal fixes for initial-load instability on `index.html`/`styles.css`, prioritizing CLS and forced-reflow risk on theme/language/font/nav initialization.
 - Guardrails: preserve multilingual support (`en`/`ko`/`km`), theme toggle, mobile navigation, footer privacy flow, and current visual identity with static GitHub Pages-safe edits only.
+
+### Completion entry
+- Date/time: 2026-04-17T11:11:06Z (same session)
+- Root causes confirmed:
+  - Test-sensitive CLS spike when a persisted non-English language is restored: initial HTML is English, then `applyLanguage()` rewrites many text nodes after first render.
+  - Khmer path amplifies this by loading the Khmer font stylesheet at runtime, allowing additional post-render metric shifts.
+  - `applyLanguage()` was writing text/aria attributes unconditionally during translation passes, increasing synchronous main-thread mutation cost.
+  - Language toggle width was not explicitly reserved, leaving minor control-width movement risk during language changes.
+- Fixes applied:
+  - Added first-paint stabilization lock for non-English startup (`data-i18n-pending`) so translated state is applied before revealing content.
+  - Updated Khmer loader to return a reusable Promise and used bounded font readiness waits during initial Khmer restore to avoid late visible swaps.
+  - Reduced unnecessary DOM rewrites by only mutating i18n text/aria nodes when values actually change.
+  - Reserved language toggle dimensions (`#lang-toggle`, `#lang-toggle-value`) to keep footer controls stable.
+- Validation:
+  - `python scripts/check_local_links.py` passed.
+  - `python -m unittest discover -s tests -v` passed (9/9).
+  - `parallel_validation` passed (no code review issues; no CodeQL-analyzable language changes).
