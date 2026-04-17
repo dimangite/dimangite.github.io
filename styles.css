@@ -487,6 +487,28 @@ h2 {
   max-width: 75ch;
 }
 
+.thesis-grid {
+  margin-top: 1.25rem;
+}
+
+.thesis-grid .card {
+  grid-column: span 8;
+}
+
+.thesis-label {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.thesis-meta {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
 .timeline-intro {
   margin-top: 0.9rem;
   color: var(--text-secondary);
