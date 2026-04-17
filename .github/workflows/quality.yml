@@ -58,7 +58,7 @@ jobs:
 
           def markdown_slug(heading: str) -> str:
               slug = heading.strip().lower()
-              slug = re.sub(r"[^\w\s-]", "", slug)
+              slug = re.sub(r"[^a-z0-9\s-]", "", slug)
               slug = re.sub(r"\s+", "-", slug)
               slug = re.sub(r"-{2,}", "-", slug)
               return slug.strip("-")
@@ -80,8 +80,11 @@ jobs:
                   return True
 
               if target.suffix.lower() in {".md", ".markdown"}:
-                  heading_pattern = re.compile(r"^\s{0,3}#{1,6}\s+(.+?)\s*$", re.MULTILINE)
-                  slugs = {markdown_slug(h) for h in heading_pattern.findall(text)}
+                  heading_pattern = re.compile(
+                      r"^\s{0,3}#{1,6}\s+(.+?)\s*#*\s*$",
+                      re.MULTILINE,
+                  )
+                  slugs = {markdown_slug(h.rstrip("#").rstrip()) for h in heading_pattern.findall(text)}
                   return fragment in slugs
 
               return False
@@ -95,11 +98,12 @@ jobs:
                   return
 
               path_part = parsed.path
-              candidate = source_file if not path_part else (
-                  (repo_root / path_part.lstrip("/"))
-                  if path_part.startswith("/")
-                  else (source_file.parent / path_part).resolve()
-              )
+              if not path_part:
+                  candidate = source_file
+              elif path_part.startswith("/"):
+                  candidate = repo_root / path_part.lstrip("/")
+              else:
+                  candidate = (source_file.parent / path_part).resolve()
 
               try:
                   candidate.relative_to(repo_root)
