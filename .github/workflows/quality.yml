@@ -47,7 +47,7 @@ jobs:
               repo_root / "privacy.html",
           ]
 
-          target_text = {target: target.read_text(encoding="utf-8") for target in targets}
+          target_text = {}
           markdown_link_pattern = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
           html_link_pattern = re.compile(
               r"""(?:href|src)=(?:["']([^"']+)["']|([^\s>]+))""",
@@ -58,7 +58,7 @@ jobs:
 
           def markdown_slug(heading: str) -> str:
               slug = heading.strip().lower()
-              slug = re.sub(r"[^a-z0-9_\s-]", "", slug)
+              slug = re.sub(r"[^\w\s-]", "", slug)
               slug = re.sub(r"\s+", "-", slug)
               slug = re.sub(r"-{2,}", "-", slug)
               return slug.strip("-")
@@ -81,7 +81,7 @@ jobs:
 
               if target.suffix.lower() in {".md", ".markdown"}:
                   heading_pattern = re.compile(
-                      r"^\s{0,3}#{1,6}\s+(.+?)(?:\s+#+)?\s*$",
+                      r"^\s{0,3}#{1,6}\s+(.+)(?:\s+#+)?\s*$",
                       re.MULTILINE,
                   )
                   slugs = {markdown_slug(h) for h in heading_pattern.findall(text)}
@@ -119,7 +119,8 @@ jobs:
                   errors.append(f"{source_file}: missing fragment target for {link}")
 
           for target in targets:
-              text = target_text[target]
+              text = target.read_text(encoding="utf-8")
+              target_text[target] = text
               for match in markdown_link_pattern.findall(text):
                   check_link(match, target)
               for quoted, unquoted in html_link_pattern.findall(text):
