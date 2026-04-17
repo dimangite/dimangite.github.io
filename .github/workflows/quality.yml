@@ -84,7 +84,7 @@ jobs:
                       r"^\s{0,3}#{1,6}\s+(.+?)\s*#*\s*$",
                       re.MULTILINE,
                   )
-                  slugs = {markdown_slug(h.rstrip("#").rstrip()) for h in heading_pattern.findall(text)}
+                  slugs = {markdown_slug(h.rstrip()) for h in heading_pattern.findall(text)}
                   return fragment in slugs
 
               return False
