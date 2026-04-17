@@ -31,6 +31,7 @@ jobs:
         # Keep checks lightweight and low-noise for a static portfolio repo.
         # --offline avoids flaky external-network failures while still validating local links.
         run: |
+          set -euo pipefail
           docker run --rm \
             --volume "$PWD:/repo" \
             --workdir /repo \
