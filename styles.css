@@ -492,11 +492,11 @@ h2 {
 }
 
 .thesis-grid .card {
-  grid-column: span 8;
+  grid-column: 1 / -1;
 }
 
 .thesis-label {
-  margin: 0;
+  margin: 0 0 0.4rem;
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.03em;
