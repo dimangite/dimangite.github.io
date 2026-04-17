@@ -30,12 +30,13 @@ jobs:
       - name: Offline link checks (docs and local references)
         # Keep checks lightweight and low-noise for a static portfolio repo.
         # --offline avoids flaky external-network failures while still validating local links.
+        # Shell strict mode propagates lychee non-zero exit codes and fails the job.
         run: |
           set -euo pipefail
           docker run --rm \
             --volume "$PWD:/repo" \
             --workdir /repo \
-            lycheeverse/lychee:latest \
+            lycheeverse/lychee@sha256:8bafa87dc394ebc0370694063466c70eb9f129910429af7533e9cf79c139279d \
             --offline \
             --no-progress \
             --base /repo \
