@@ -67,13 +67,18 @@
           class="nav-toggle"
           type="button"
           aria-expanded="false"
-          aria-controls="mobile-nav"
+          aria-controls="primary-nav"
           data-i18n-attr-aria-label="navToggleAria"
         >
           <span class="visually-hidden" data-i18n="navToggleLabel">Toggle navigation</span>
           <span aria-hidden="true">☰</span>
         </button>
-        <nav class="desktop-nav" aria-label="Primary">
+        <nav
+          class="site-nav"
+          id="primary-nav"
+          data-i18n-attr-aria-label="primaryNavAria"
+          aria-label="Primary navigation"
+        >
           <ul class="nav-list">
             <li><a href="#about" data-i18n="navAbout">About</a></li>
             <li><a href="#focus" data-i18n="navFocus">Focus</a></li>
@@ -85,19 +90,6 @@
           </ul>
         </nav>
       </div>
-      <nav class="mobile-nav" id="mobile-nav" data-i18n-attr-aria-label="mobileMenuAria" hidden>
-        <div class="container">
-          <ul class="nav-list">
-            <li><a href="#about" data-i18n="navAbout">About</a></li>
-            <li><a href="#focus" data-i18n="navFocus">Focus</a></li>
-            <li><a href="#work" data-i18n="navWork">Selected Work</a></li>
-            <li><a href="#timeline" data-i18n="navTimeline">Timeline</a></li>
-            <li><a href="#stack" data-i18n="navStack">Tech Stack</a></li>
-            <li><a href="#research" data-i18n="navResearch">Research Note</a></li>
-            <li><a href="#contact" data-i18n="navContact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
     </header>
 
     <main id="main-content">
@@ -436,7 +428,7 @@
     </footer>
     <script>
       const navToggle = document.querySelector(".nav-toggle");
-      const mobileNav = document.getElementById("mobile-nav");
+      const primaryNav = document.getElementById("primary-nav");
       const themeToggle = document.getElementById("theme-toggle");
       const themeToggleIcon = document.getElementById("theme-toggle-icon");
       const langToggle = document.getElementById("lang-toggle");
@@ -456,7 +448,7 @@
           langShortLabel: "EN",
           navToggleLabel: "Toggle navigation",
           navToggleAria: "Toggle navigation menu",
-          mobileMenuAria: "Mobile menu",
+          primaryNavAria: "Primary navigation",
           navAbout: "About",
           navFocus: "Focus",
           navWork: "Selected Work",
@@ -538,7 +530,7 @@
           langShortLabel: "KO",
           navToggleLabel: "내비게이션 전환",
           navToggleAria: "내비게이션 메뉴 전환",
-          mobileMenuAria: "모바일 메뉴",
+          primaryNavAria: "주요 내비게이션",
           navAbout: "소개",
           navFocus: "집중 분야",
           navWork: "주요 작업",
@@ -547,7 +539,7 @@
           navResearch: "연구 노트",
           navContact: "연락처",
           heroEyebrow: "컴퓨터공학 박사과정",
-          heroTitle: "예측 모델링, ML 평가, 그리고 재현 가능한 연구 엔지니어링.",
+          heroTitle: "예측 모델링, ML 평가, 재현 가능한 연구 엔지니어링.",
           heroLead:
             "ML 실험 전반에서 벤치마킹, 모델 평가, 재현 가능한 보고를 위한 Python 기반 워크플로를 구축합니다.",
           focusTitle: "현재 집중 분야",
@@ -561,13 +553,13 @@
             "연구 엔지니어링 워크플로에서 선별한 대표 도구입니다. 진행 중인 논문 코드와 미공개 실험은 비공개로 유지하며, 공개 저장소에는 재사용 가능한 인프라와 보고 패턴만 반영했습니다.",
           workCard1Title: "실험 워크플로 패턴",
           workCard1Desc:
-            "구성 관리, 실행 추적, 재현 가능한 출력 생성을 위한 재사용 가능한 Python 실험 구조입니다.",
+            "구성 관리, 실행 추적, 재현 가능한 출력을 지원하는 재사용성 높은 Python 실험 구조입니다.",
           workCard2Title: "모델 평가 유틸리티",
           workCard2Desc:
             "일관된 모델 평가를 위해 지표 계산, 데이터 분할 관리, 비교 테이블 생성을 지원하는 도구입니다.",
           workCard3Title: "재현 가능한 리포팅 스크립트",
           workCard3Desc:
-            "실험 로그에서 결과 요약과 감사 대응 가능한 비교 보고서를 자동 생성하는 스크립트입니다.",
+            "실험 로그에서 결과 요약과 감사에 활용 가능한 비교 보고서를 자동 생성하는 스크립트입니다.",
           timelineTitle: "경력 타임라인",
           timelineIntro: "고용 경력, 학력/자격, 장학 이력을 시간순으로 정리했습니다.",
           employmentTitle: "고용 경력",
@@ -618,7 +610,7 @@
           langShortLabel: "KM",
           navToggleLabel: "ប្ដូរម៉ឺនុយរុករក",
           navToggleAria: "បើក ឬបិទ ម៉ឺនុយរុករក",
-          mobileMenuAria: "ម៉ឺនុយលើទូរស័ព្ទ",
+          primaryNavAria: "ការរុករកចម្បង",
           navAbout: "អំពី",
           navFocus: "ផ្នែកផ្ដោត",
           navWork: "ស្នាដៃ",
@@ -706,6 +698,8 @@
 
       let currentTheme = document.documentElement.getAttribute("data-theme") || "light";
       let currentLanguage = getSupportedLanguage(document.documentElement.lang);
+      const desktopMediaQuery = window.matchMedia(`(min-width: ${mobileBreakpoint + 1}px)`);
+      let isMobileNavOpen = false;
       const moonIcon = `
         <svg
           class="theme-toggle-icon"
@@ -777,51 +771,63 @@
         }
       }
 
-      function closeMobileNav() {
-        if (!mobileNav || !navToggle) return;
-        mobileNav.hidden = true;
-        navToggle.setAttribute("aria-expanded", "false");
+      function isDesktopViewport() {
+        return desktopMediaQuery.matches;
       }
 
-      if (navToggle && mobileNav) {
-        closeMobileNav();
+      function syncNavigationState() {
+        if (!primaryNav || !navToggle) return;
+        const isDesktop = isDesktopViewport();
+        const shouldShowNav = isDesktop || isMobileNavOpen;
+        primaryNav.hidden = !shouldShowNav;
+        primaryNav.classList.toggle("is-open", !isDesktop && isMobileNavOpen);
+        navToggle.setAttribute("aria-expanded", String(!isDesktop && isMobileNavOpen));
+      }
+
+      function closeMobileNav() {
+        if (!primaryNav || !navToggle) return;
+        isMobileNavOpen = false;
+        syncNavigationState();
+      }
+
+      if (navToggle && primaryNav) {
+        syncNavigationState();
 
         navToggle.addEventListener("click", () => {
-          const willOpen = mobileNav.hidden;
-          mobileNav.hidden = !willOpen;
-          navToggle.setAttribute("aria-expanded", String(willOpen));
+          if (isDesktopViewport()) return;
+          isMobileNavOpen = !isMobileNavOpen;
+          syncNavigationState();
         });
 
-        mobileNav.addEventListener("click", (event) => {
-          if (event.target.closest("a")) {
+        primaryNav.addEventListener("click", (event) => {
+          if (!isDesktopViewport() && event.target.closest("a")) {
             closeMobileNav();
             navToggle.focus();
           }
         });
 
         document.addEventListener("click", (event) => {
-          if (mobileNav.hidden) return;
+          if (isDesktopViewport() || primaryNav.hidden) return;
           const target = event.target;
           if (!(target instanceof Element)) return;
-          if (!mobileNav.contains(target) && !navToggle.contains(target)) {
+          if (!primaryNav.contains(target) && !navToggle.contains(target)) {
             closeMobileNav();
           }
         });
 
         document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape" && !mobileNav.hidden) {
+          if (event.key === "Escape" && !primaryNav.hidden && !isDesktopViewport()) {
             closeMobileNav();
             navToggle.focus();
           }
         });
 
-        const desktopMediaQuery = window.matchMedia(`(min-width: ${mobileBreakpoint + 1}px)`);
-        const closeOnDesktop = (event) => {
-          if (event.matches) {
-            closeMobileNav();
+        desktopMediaQuery.addEventListener("change", () => {
+          if (isDesktopViewport()) {
+            isMobileNavOpen = false;
           }
-        };
-        desktopMediaQuery.addEventListener("change", closeOnDesktop);
+          syncNavigationState();
+        });
       }
 
       if (themeToggle) {

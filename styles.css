@@ -170,6 +170,7 @@ a:focus-visible {
   gap: 0.75rem;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   padding: 0.68rem 0;
   min-width: 0;
 }
@@ -239,12 +240,8 @@ a:focus-visible {
   border: 0;
 }
 
-.nav-toggle,
-.mobile-nav {
-  display: none;
-}
-
 .nav-toggle {
+  display: none;
   position: relative;
   z-index: 20;
   border: 1px solid var(--border);
@@ -257,7 +254,7 @@ a:focus-visible {
   cursor: pointer;
 }
 
-.desktop-nav {
+.site-nav {
   min-width: 0;
   flex: 1;
 }
@@ -275,7 +272,7 @@ a:focus-visible {
   min-width: 0;
 }
 
-.desktop-nav .nav-list {
+.site-nav .nav-list {
   justify-content: flex-end;
 }
 
@@ -643,39 +640,34 @@ h2 {
 }
 
 @media (max-width: 900px) {
-  .desktop-nav {
-    display: none;
-  }
-
   .nav-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
 
-  .mobile-nav {
+  .site-nav {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     z-index: 15;
-    display: block;
     border-top: 1px solid var(--border);
     background: rgba(var(--bg-rgb), 0.99);
     box-shadow: var(--shadow);
   }
 
-  .mobile-nav[hidden] {
+  .site-nav:not(.is-open) {
     display: none;
   }
 
-  .mobile-nav .nav-list {
+  .site-nav .nav-list {
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.75rem 0 0.9rem;
   }
 
-  .mobile-nav .nav-list a {
+  .site-nav .nav-list a {
     display: inline-block;
     font-size: 0.96rem;
     line-height: 1.45;
