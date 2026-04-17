@@ -8,6 +8,8 @@ All notable changes to this repository are documented here.
 - `ARCHITECTURE.md` to document site structure, design decisions, and maintenance practices.
 - `CHANGELOG.md` to keep repository-level change tracking explicit and truthful.
 - `.github/workflows/quality.yml` for lightweight static quality checks.
+- `scripts/check_local_links.py` for repository-local markdown/HTML link validation.
+- `tests/test_check_local_links.py` for unit coverage of local link checker behavior.
 - `robots.txt` and `sitemap.xml` for minimal, maintainable crawl/index metadata.
 - `favicon.svg` as a simple local favicon asset (no external dependency).
 
@@ -16,6 +18,7 @@ All notable changes to this repository are documented here.
 - `index.html` metadata hardened with canonical URL, Open Graph/Twitter summary metadata, theme-color hints, and favicon references.
 - `privacy.html` metadata refined for redirect semantics (`noindex,follow`), canonical URL, and consistent head metadata.
 - Khmer typography strategy in `styles.css` strengthened with system-first fallback ordering and language-specific readability/wrapping safeguards.
+- `.github/workflows/quality.yml` now executes the local link checker script in CI.
 
 ### Repository state reflected in this release train
 - Single-page portfolio flow with an integrated in-page privacy section and `privacy.html` redirect compatibility path.

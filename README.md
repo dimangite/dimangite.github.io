@@ -28,7 +28,9 @@ This repository publishes a concise, public-facing engineering portfolio. It int
 - `styles.css`: design tokens, layout, responsive rules, language-specific typography
 - `privacy.html`: redirect entry point to `index.html#privacy`
 - `.github/workflows/deploy.yml`: GitHub Pages deployment
-- `.github/workflows/quality.yml`: lightweight static quality checks
+- `.github/workflows/quality.yml`: lightweight static quality checks and local-link validation
+- `scripts/check_local_links.py`: repository-local link checker for docs/pages
+- `tests/test_check_local_links.py`: unit tests for link-checking behavior
 
 See `ARCHITECTURE.md` for implementation details.
 
@@ -80,13 +82,23 @@ Open `http://localhost:8000`.
 
 ## Maintenance and quality
 - Keep edits small, explicit, and production-safe for a static site
-- CI (`quality.yml`) intentionally stays lightweight: HTML sanity checks + offline link checks
+- CI (`quality.yml`) intentionally stays lightweight: HTML sanity checks + local/offline link checks
+- Local link checks are enforced by `python scripts/check_local_links.py`
+- Script coverage is validated by `python -m unittest discover -s tests -v`
 - Keep metadata (`canonical`, OG, robots, sitemap) truthful and minimal
 - Avoid adding dependencies unless they provide clear maintenance value
 
 ## Repository structure
 ```text
 .
+├─ .github/
+│  └─ workflows/
+│     ├─ deploy.yml
+│     └─ quality.yml
+├─ scripts/
+│  └─ check_local_links.py
+├─ tests/
+│  └─ test_check_local_links.py
 ├─ index.html
 ├─ styles.css
 ├─ privacy.html
@@ -95,10 +107,7 @@ Open `http://localhost:8000`.
 ├─ favicon.svg
 ├─ ARCHITECTURE.md
 ├─ CHANGELOG.md
-└─ .github/
-   └─ workflows/
-      ├─ deploy.yml
-      └─ quality.yml
+└─ README.md
 ```
 
 ## Minimal future improvements
