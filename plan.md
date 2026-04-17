@@ -33,3 +33,37 @@
   - Theme toggle, language toggle, section anchors, and responsive breakpoint logic were left untouched.
   - Could not verify: live headless-browser rendering across viewports (Edge blocked by sandbox crashpad permissions in this environment, same as the prior run).
 - Final verdict: ACCEPTED. Nav refactor is correct and maintainable; translation quality is now consistent and professionally phrased across all three languages.
+
+## Visual Refinement Pass — Dark Palette and Footer Alignment
+
+### Start entry
+- Date/time: 2026-04-17 (current session)
+- Scope: refine dark-mode palette from blue-heavy navy to neutral slate/charcoal, and correct footer alignment coherence without redesigning structure or content.
+- Files in scope: `styles.css` (primary), `index.html` (audit only), `plan.md`.
+
+### Completion entry
+- Date/time: 2026-04-17 (current session, same sitting)
+- Issue A findings (dark mode):
+  - Existing dark tokens were strongly blue (`#0f1520`, `#161f2f`, `#2c3a52`, bright blue accent), making page/background/surfaces too hue-adjacent and less professional.
+  - Secondary text and muted hierarchy were not separated enough for restrained dark readability.
+- Issue A fixes applied (`styles.css`):
+  - Replaced dark palette tokens with a neutral slate/charcoal system:
+    - `--bg: #0b0d10`, `--surface: #11151a`, `--surface-raised: #161b22`, `--border: #232a33`
+    - `--text: #e6edf3`, `--text-secondary: #a9b4c0`, `--muted: #7d8896`
+    - `--accent: #6aa0ff`, `--accent-hover: #8ab4ff`, `--accent-rgb: 106, 160, 255`
+    - chip tokens: `--chip-bg: rgba(106, 160, 255, 0.08)`, `--chip-border: rgba(106, 160, 255, 0.22)`
+  - Added tokenized header/overlay backgrounds (`--header-bg`, `--overlay-bg`) and applied them to sticky header/mobile nav for clearer separation from page background.
+  - Updated tags/chips to low-contrast filled pills with restrained borders via shared chip tokens.
+  - Tuned secondary text usage on cards/timeline/supporting metadata to improve hierarchy and reduce harshness.
+- Issue B findings (footer alignment):
+  - Footer blocks used inconsistent vertical spacing contracts (`contact-links`, privacy note, and bottom row each with independent offsets), making alignment feel optically off.
+  - Bottom row used `justify-content: space-between` with a single content group, which created an unintentional layout signal.
+- Issue B fixes applied (`styles.css`):
+  - Unified footer alignment flow with `.site-footer .container` as a single left-aligned vertical stack.
+  - Removed offset margins from `.contact-links` and `.footer-privacy-note` and used consistent container-driven spacing.
+  - Made `.footer-bottom` full-width but left-anchored (`justify-content: flex-start`) with preserved responsive behavior.
+  - Allowed `.footer-controls` to wrap cleanly and stay aligned across narrow widths.
+- Verification summary:
+  - Desktop and mobile footer layout rules now share one coherent left edge and spacing contract.
+  - Dark palette tokens now read neutral dark/slate rather than navy-blue, with clearer surface/header separation.
+  - Light mode token values and page structure were kept intact.
