@@ -2,11 +2,18 @@
   --bg: #f7f8fa;
   --bg-rgb: 247, 248, 250;
   --surface: #ffffff;
+  --surface-raised: #f1f4f8;
+  --header-bg: rgba(247, 248, 250, 0.9);
+  --overlay-bg: rgba(247, 248, 250, 0.99);
   --text: #1d2430;
-  --muted: #4e5b70;
+  --text-secondary: #4e5b70;
+  --muted: #667489;
   --border: #d8dde5;
   --accent: #2f5eb8;
+  --accent-hover: #1f4fa8;
   --accent-rgb: 47, 94, 184;
+  --chip-bg: #f3f7ff;
+  --chip-border: #d8e3fa;
   --maxw: 960px;
   --radius: 12px;
   --shadow: 0 4px 20px rgba(17, 24, 39, 0.05);
@@ -19,14 +26,21 @@
 }
 
 [data-theme="dark"] {
-  --bg: #0f1520;
-  --bg-rgb: 15, 21, 32;
-  --surface: #161f2f;
-  --text: #e8eef8;
-  --muted: #b7c3d8;
-  --border: #2c3a52;
-  --accent: #9ec1ff;
-  --accent-rgb: 158, 193, 255;
+  --bg: #0b0d10;
+  --bg-rgb: 11, 13, 16;
+  --surface: #11151a;
+  --surface-raised: #161b22;
+  --header-bg: rgba(17, 21, 26, 0.9);
+  --overlay-bg: rgba(17, 21, 26, 0.98);
+  --text: #e6edf3;
+  --text-secondary: #a9b4c0;
+  --muted: #7d8896;
+  --border: #232a33;
+  --accent: #6aa0ff;
+  --accent-hover: #8ab4ff;
+  --accent-rgb: 106, 160, 255;
+  --chip-bg: rgba(106, 160, 255, 0.08);
+  --chip-border: rgba(106, 160, 255, 0.22);
   --shadow: 0 8px 24px rgba(5, 8, 15, 0.4);
 }
 
@@ -128,6 +142,7 @@ a {
 
 a:hover,
 a:focus-visible {
+  color: var(--accent-hover);
   text-decoration-thickness: 2px;
 }
 
@@ -161,7 +176,7 @@ a:focus-visible {
   z-index: 10;
   overflow: visible;
   border-bottom: 1px solid var(--border);
-  background: rgba(var(--bg-rgb), 0.9);
+  background: var(--header-bg);
   backdrop-filter: blur(4px);
 }
 
@@ -339,9 +354,10 @@ h2 {
 
 .tag-list li {
   padding: 0.45rem 0.75rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--chip-border);
   border-radius: 999px;
-  background: var(--surface);
+  background: var(--chip-bg);
+  color: var(--text-secondary);
   font-size: 0.92rem;
 }
 
@@ -365,19 +381,19 @@ h2 {
 
 .card p {
   margin: 0.5rem 0 0;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 #stack p,
 #research p {
   margin-top: 0.9rem;
-  color: var(--muted);
+  color: var(--text-secondary);
   max-width: 75ch;
 }
 
 .timeline-intro {
   margin-top: 0.9rem;
-  color: var(--muted);
+  color: var(--text-secondary);
   max-width: 75ch;
 }
 
@@ -391,7 +407,7 @@ h2 {
 
 .timeline-group-title {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -442,7 +458,7 @@ h2 {
 
 .timeline-date {
   margin: 0 0 0.35rem;
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -457,7 +473,7 @@ h2 {
 
 .timeline-meta {
   margin: 0.22rem 0 0;
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
@@ -471,7 +487,7 @@ h2 {
   margin: 0.4rem 0 0;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .timeline-awards-list {
@@ -492,14 +508,14 @@ h2 {
 }
 
 .award-year {
-  color: var(--muted);
+  color: var(--text-secondary);
   font-variant-numeric: tabular-nums;
   min-width: 2.8rem;
   flex: none;
 }
 
 .award-sem {
-  color: var(--muted);
+  color: var(--text-secondary);
   flex: none;
 }
 
@@ -515,9 +531,16 @@ h2 {
   padding: 2rem 0;
 }
 
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
 .contact-links {
   list-style: none;
-  margin: 0.85rem 0 0;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -559,20 +582,21 @@ h2 {
 }
 
 .footer-privacy-note {
-  margin: 0.9rem 0 0;
+  margin: 0;
   font-size: 0.78rem;
   color: var(--muted);
   max-width: 74ch;
 }
 
 .footer-bottom {
-  margin-top: 1rem;
+  width: 100%;
+  margin-top: 0.1rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--border);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0.5rem 1rem;
   min-width: 0;
 }
@@ -591,6 +615,8 @@ h2 {
 
 .footer-controls {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -646,14 +672,14 @@ h2 {
     justify-content: center;
   }
 
-  .site-nav {
+.site-nav {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     z-index: 15;
     border-top: 1px solid var(--border);
-    background: rgba(var(--bg-rgb), 0.99);
+    background: var(--overlay-bg);
     box-shadow: var(--shadow);
   }
 
