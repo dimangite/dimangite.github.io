@@ -30,11 +30,12 @@ jobs:
       - name: Offline link checks (docs and local references)
         # Keep checks lightweight and low-noise for a static portfolio repo.
         # --offline avoids flaky external-network failures while still validating local links.
-        uses: lycheeverse/lychee-action@v2
-        with:
-          args: >
-            --offline
-            --no-progress
-            --base .
+        run: |
+          docker run --rm \
+            --volume "$PWD:/repo" \
+            --workdir /repo \
+            ghcr.io/lycheeverse/lychee:latest \
+            --offline \
+            --no-progress \
+            --base . \
             README.md ARCHITECTURE.md CHANGELOG.md index.html privacy.html
-          fail: true
