@@ -34,8 +34,8 @@ jobs:
           docker run --rm \
             --volume "$PWD:/repo" \
             --workdir /repo \
-            ghcr.io/lycheeverse/lychee:latest \
+            lycheeverse/lychee:latest \
             --offline \
             --no-progress \
-            --base . \
+            --root-dir /repo \
             README.md ARCHITECTURE.md CHANGELOG.md index.html privacy.html
