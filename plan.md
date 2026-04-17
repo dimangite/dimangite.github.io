@@ -91,3 +91,10 @@
 - Validation:
   - `python scripts/check_local_links.py` passed.
   - `python -m unittest discover -s tests -v` passed (9/9).
+
+## Regression Audit Pass — CLS and Forced-Reflow Stabilization
+
+### Start entry
+- Date/time: 2026-04-17T11:11:06Z
+- Scope: root-cause audit and minimal fixes for initial-load instability on `index.html`/`styles.css`, prioritizing CLS and forced-reflow risk on theme/language/font/nav initialization.
+- Guardrails: preserve multilingual support (`en`/`ko`/`km`), theme toggle, mobile navigation, footer privacy flow, and current visual identity with static GitHub Pages-safe edits only.

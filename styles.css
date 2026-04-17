@@ -134,6 +134,10 @@ body {
   overflow-x: hidden;
 }
 
+html[data-i18n-pending="true"] body {
+  visibility: hidden;
+}
+
 a {
   color: var(--accent);
   text-decoration-thickness: 1px;
@@ -214,6 +218,16 @@ a:focus-visible {
   font-size: 0.85rem;
   line-height: 1.2;
   cursor: pointer;
+}
+
+#lang-toggle {
+  min-width: 4.35rem;
+}
+
+#lang-toggle-value {
+  display: inline-block;
+  min-width: 2ch;
+  text-align: center;
 }
 
 #theme-toggle-icon {

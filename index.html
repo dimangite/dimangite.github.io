@@ -30,22 +30,33 @@
     />
     <script>
       (function () {
+        const rootElement = document.documentElement;
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         try {
           const storedTheme = localStorage.getItem("theme");
           const safeTheme = storedTheme === "dark" || storedTheme === "light" ? storedTheme : null;
           const preferredTheme = safeTheme || (prefersDark ? "dark" : "light");
-          document.documentElement.setAttribute("data-theme", preferredTheme);
+          rootElement.setAttribute("data-theme", preferredTheme);
 
           const storedLanguage = localStorage.getItem("language");
           const safeLanguage =
             storedLanguage === "en" || storedLanguage === "ko" || storedLanguage === "km"
               ? storedLanguage
               : "en";
-          document.documentElement.lang = safeLanguage;
+          rootElement.lang = safeLanguage;
+          if (safeLanguage !== "en") {
+            rootElement.setAttribute("data-i18n-pending", "true");
+          }
+
+          let khmerFontLoadPromise = null;
 
           window.ensureKhmerFontLoaded = function () {
-            if (document.getElementById("khmer-font-stylesheet")) return;
+            if (khmerFontLoadPromise) return khmerFontLoadPromise;
+
+            if (document.getElementById("khmer-font-stylesheet")) {
+              khmerFontLoadPromise = Promise.resolve();
+              return khmerFontLoadPromise;
+            }
 
             if (!document.querySelector('link[data-font-preconnect="googleapis"]')) {
               const preconnectGoogleApis = document.createElement("link");
@@ -69,15 +80,24 @@
             khmerFontStylesheet.rel = "stylesheet";
             khmerFontStylesheet.href =
               "https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap";
+            khmerFontLoadPromise = new Promise((resolve) => {
+              khmerFontStylesheet.addEventListener("load", resolve, { once: true });
+              khmerFontStylesheet.addEventListener("error", resolve, { once: true });
+            });
             document.head.appendChild(khmerFontStylesheet);
+            return khmerFontLoadPromise;
           };
 
           if (safeLanguage === "km") {
             window.ensureKhmerFontLoaded();
           }
         } catch (error) {
-          document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
-          document.documentElement.lang = "en";
+          rootElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+          rootElement.lang = "en";
+          rootElement.removeAttribute("data-i18n-pending");
+          window.ensureKhmerFontLoaded = function () {
+            return Promise.resolve();
+          };
         }
       })();
     </script>
@@ -776,8 +796,9 @@
         currentLanguage = getSupportedLanguage(language);
         document.documentElement.lang = currentLanguage;
 
+        let khmerFontPromise = null;
         if (currentLanguage === "km" && typeof window.ensureKhmerFontLoaded === "function") {
-          window.ensureKhmerFontLoaded();
+          khmerFontPromise = window.ensureKhmerFontLoaded();
         }
 
         const canSkipTranslationPass = currentLanguage === "en" && !hasAppliedNonDefaultLanguage;
@@ -785,30 +806,33 @@
           if (langToggleValue) {
             langToggleValue.textContent = "EN";
           }
-          return;
+          return khmerFontPromise;
         }
 
         const dict = translations[currentLanguage] || translations.en;
 
         i18nElements.forEach((element) => {
           const key = element.getAttribute("data-i18n");
-          if (key && dict[key]) {
-            element.textContent = dict[key];
+          const translatedText = key ? dict[key] : null;
+          if (translatedText && element.textContent !== translatedText) {
+            element.textContent = translatedText;
           }
         });
 
         i18nAttrElements.forEach((element) => {
           const key = element.getAttribute("data-i18n-attr-aria-label");
-          if (key && dict[key]) {
-            element.setAttribute("aria-label", dict[key]);
+          const translatedAriaLabel = key ? dict[key] : null;
+          if (translatedAriaLabel && element.getAttribute("aria-label") !== translatedAriaLabel) {
+            element.setAttribute("aria-label", translatedAriaLabel);
           }
         });
 
-        if (langToggleValue) {
+        if (langToggleValue && langToggleValue.textContent !== dict.langShortLabel) {
           langToggleValue.textContent = dict.langShortLabel;
         }
 
         hasAppliedNonDefaultLanguage = currentLanguage !== "en";
+        return khmerFontPromise;
       }
 
       function isDesktopViewport() {
@@ -894,8 +918,36 @@
         });
       }
 
-      applyTheme(currentTheme);
-      applyLanguage(currentLanguage);
+      async function initializeStableInitialState() {
+        applyTheme(currentTheme);
+        const shouldDelayPaint = document.documentElement.getAttribute("data-i18n-pending") === "true";
+        const initialFontPromise = applyLanguage(currentLanguage);
+
+        if (shouldDelayPaint && currentLanguage === "km") {
+          try {
+            await Promise.race([
+              initialFontPromise || Promise.resolve(),
+              new Promise((resolve) => {
+                window.setTimeout(resolve, 1200);
+              })
+            ]);
+            if (document.fonts && typeof document.fonts.load === "function") {
+              await Promise.race([
+                document.fonts.load('1em "Noto Sans Khmer"'),
+                new Promise((resolve) => {
+                  window.setTimeout(resolve, 600);
+                })
+              ]);
+            }
+          } catch (error) {
+            // Ignore font readiness failures.
+          }
+        }
+
+        document.documentElement.removeAttribute("data-i18n-pending");
+      }
+
+      initializeStableInitialState();
     </script>
   </body>
 </html>
