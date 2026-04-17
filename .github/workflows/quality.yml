@@ -38,5 +38,5 @@ jobs:
             lycheeverse/lychee:latest \
             --offline \
             --no-progress \
-            --root-dir /repo \
-            README.md ARCHITECTURE.md CHANGELOG.md index.html privacy.html
+            --base /repo \
+            README.md ARCHITECTURE.md CHANGELOG.md index.html privacy.html || exit 1
