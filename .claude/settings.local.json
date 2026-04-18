@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(python3 *)",
-      "Bash(echo \"exit=$?\")"
+      "Bash(echo \"exit=$?\")",
+      "WebFetch(domain:dimangite.github.io)",
+      "Bash(echo \"EXIT: $?\")"
     ]
   }
 }

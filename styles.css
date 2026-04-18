@@ -412,6 +412,87 @@ h2 {
   color: var(--muted);
 }
 
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.7rem;
+  margin-top: 1.6rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.58rem 1.1rem;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--bg);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.22);
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.section-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.work-section {
+  border-top: 1px solid var(--border);
+}
+
+.work-section h2 {
+  color: var(--text-secondary);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+}
+
+.work-section .work-intro {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  max-width: 70ch;
+  font-size: 0.93rem;
+}
+
+.work-section .card {
+  box-shadow: none;
+  background: var(--surface-raised);
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -514,31 +595,32 @@ h2 {
 }
 
 .timeline-intro {
-  margin-top: 0.9rem;
-  color: var(--text-secondary);
-  max-width: 75ch;
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 70ch;
 }
 
 .timeline-group {
-  margin-top: 1.35rem;
+  margin-top: 1.1rem;
 }
 
 .timeline-group + .timeline-group {
-  margin-top: 2.25rem;
+  margin-top: 1.6rem;
 }
 
 .timeline-group-title {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .timeline-list {
   list-style: none;
-  margin: 0.75rem 0 0;
+  margin: 0.55rem 0 0;
   padding: 0 0 0 1.45rem;
   position: relative;
 }
@@ -555,7 +637,7 @@ h2 {
 
 .timeline-item {
   position: relative;
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.7rem;
   min-width: 0;
 }
 
@@ -575,33 +657,36 @@ h2 {
 
 .timeline-content {
   min-width: 0;
-  padding: 0.15rem 0 0.55rem;
+  padding: 0.1rem 0 0.4rem;
 }
 
 .timeline-date {
-  margin: 0 0 0.35rem;
-  color: var(--text-secondary);
-  font-size: 0.82rem;
+  margin: 0 0 0.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
 }
 
 .timeline-heading {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.94rem;
   font-weight: 600;
   overflow-wrap: anywhere;
 }
 
 .timeline-meta {
-  margin: 0.22rem 0 0;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
   overflow-wrap: anywhere;
 }
 
 .timeline-role {
-  margin: 0.35rem 0 0;
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
   overflow-wrap: anywhere;
 }
 
@@ -622,10 +707,10 @@ h2 {
 .timeline-award-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.15rem 0.9rem;
-  padding: 0.42rem 0;
+  gap: 0.1rem 0.85rem;
+  padding: 0.32rem 0;
   border-bottom: 1px solid var(--border);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   align-items: baseline;
 }
 
