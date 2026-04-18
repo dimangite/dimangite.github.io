@@ -122,7 +122,7 @@
           <ul class="nav-list">
             <li><a href="#about" data-i18n="navAbout">About</a></li>
             <li><a href="#focus" data-i18n="navFocus">Focus</a></li>
-            <li><a href="#work" data-i18n="navWork">Public Evidence</a></li>
+            <li><a href="#work" data-i18n="navWork">Public Artifacts</a></li>
             <li><a href="#timeline" data-i18n="navTimeline">Timeline</a></li>
             <li><a href="#stack" data-i18n="navStack">Tech Stack</a></li>
             <li><a href="#research" data-i18n="navResearch">Research Note</a></li>
@@ -135,10 +135,10 @@
     <main id="main-content">
       <section class="hero section" id="about" aria-labelledby="hero-title">
         <div class="container">
-          <p class="eyebrow" data-i18n="heroEyebrow">Researcher / Developer</p>
+          <p class="eyebrow" data-i18n="heroEyebrow">PhD Researcher in Computer Science</p>
           <h1 id="hero-title">
             <span data-i18n="heroTitle"
-              >Researcher/developer building reproducible ML workflows for predictive modeling and evaluation.</span
+              >PhD researcher building reproducible ML workflows for predictive modeling and evaluation.</span
             >
           </h1>
           <p class="lead" data-i18n="heroLead">
@@ -205,18 +205,18 @@
 
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="container">
-          <h2 id="work-title" data-i18n="workTitle">Public Evidence</h2>
+          <h2 id="work-title" data-i18n="workTitle">Public Artifacts</h2>
           <p data-i18n="workIntro">
-            These are the public artifacts a visitor can inspect now. They show how I frame my work,
-            publish this site, and keep the public code surface lightweight and reviewable.
+            Inspectable public artifacts: research framing, site publishing, and code surface
+            maintenance.
           </p>
           <ul class="card-grid">
             <li class="card">
               <h3 data-i18n="workCard1Title">GitHub Profile README</h3>
               <p data-i18n="workCard1Desc">
-                Public profile repository outlining research interests, technical stack, and current
-                direction. It matters because it is the fastest inspectable summary of how I position
-                predictive modeling, reproducibility, and evaluation work.
+                Public profile repository covering research interests, technical stack, and current
+                direction. The fastest overview of how I frame predictive modeling, reproducibility,
+                and evaluation work.
               </p>
               <p class="card-links">
                 <a href="https://github.com/dimangite/dimangite" target="_blank" rel="noopener noreferrer" data-i18n="workCard1Link1">Profile repository</a>
@@ -226,9 +226,8 @@
             <li class="card">
               <h3 data-i18n="workCard2Title">Portfolio Source and Deployment</h3>
               <p data-i18n="workCard2Desc">
-                Source code for this portfolio, including the trilingual static UI, GitHub Pages
-                deployment workflow, and repository structure. It matters because it shows how I
-                present work publicly with a small, reviewable stack.
+                Source code for this site: trilingual static UI, GitHub Pages deployment workflow,
+                and repository structure. Reviewable end-to-end at the linked repository.
               </p>
               <p class="card-links">
                 <a href="https://github.com/dimangite/dimangite.github.io" target="_blank" rel="noopener noreferrer" data-i18n="workCard2Link1">Site source</a>
@@ -237,11 +236,10 @@
               </p>
             </li>
             <li class="card">
-              <h3 data-i18n="workCard3Title">Validation and Maintenance Layer</h3>
+              <h3 data-i18n="workCard3Title">Site Quality Checks</h3>
               <p data-i18n="workCard3Desc">
-                Lightweight checks for repository-local links and HTML sanity in a static site repo.
-                It matters because it is a concrete public example of workflow discipline around
-                keeping documentation and reporting surfaces consistent.
+                Lightweight link validation and HTML checks for this repository. A concrete example
+                of workflow discipline applied to a public documentation surface.
               </p>
               <p class="card-links">
                 <a href="https://github.com/dimangite/dimangite.github.io/blob/main/scripts/check_local_links.py" target="_blank" rel="noopener noreferrer" data-i18n="workCard3Link1">Local link checker</a>
@@ -395,17 +393,16 @@
         <div class="container">
           <h2 id="research-title" data-i18n="researchTitle">Research Note</h2>
           <p class="research-note-text" data-i18n="researchDesc">
-            Some manuscript-linked code, datasets, and experiment outputs remain private while
-            analyses are under review or reserved for submission/publication. The public materials
-            here focus on reusable workflow components, validation scripts, and reporting surfaces
-            that can be inspected independently now.
+            Some manuscript-linked code, datasets, and experiment outputs are withheld pending review
+            or submission. Public materials focus on reusable workflow components, validation scripts,
+            and reporting surfaces.
           </p>
           <ul class="card-grid thesis-grid">
             <li class="card">
               <p class="thesis-label" data-i18n="thesisLabel">Master's Thesis</p>
               <h3 data-i18n="thesisTitle">Prediction of Machine Health Stability using Deep Learning</h3>
               <p class="thesis-meta" data-i18n="thesisMeta">Chungbuk National University, 2023</p>
-              <p data-i18n="thesisDesc">Studied machine health stability prediction in manufacturing settings using deep learning methods and feature construction from production and alarm-related signals. Forms an early research foundation for current work in predictive modeling and industrial machine-health analysis.</p>
+              <p data-i18n="thesisDesc">Applied deep learning methods with features derived from production and alarm signals to predict machine health stability in a manufacturing setting. Forms the research foundation for subsequent work in predictive modeling and industrial signal analysis.</p>
               <p class="card-links">
                 <a href="https://www.riss.kr/link?id=T16622317" target="_blank" rel="noopener noreferrer" data-i18n="thesisLink">RISS Thesis Record</a>
               </p>
@@ -447,6 +444,7 @@
                     d="M8 1.2a6.8 6.8 0 0 0-2.15 13.25c.34.06.46-.15.46-.33v-1.2c-1.9.42-2.3-.8-2.3-.8-.3-.78-.75-.98-.75-.98-.6-.4.04-.4.04-.4.68.04 1.03.7 1.03.7.58 1.03 1.55.74 1.93.57.06-.45.23-.74.41-.91-1.52-.18-3.12-.77-3.12-3.48 0-.77.27-1.4.7-1.88-.07-.17-.3-.9.07-1.87 0 0 .58-.2 1.9.72a6.35 6.35 0 0 1 3.46 0c1.32-.92 1.9-.72 1.9-.72.36.97.14 1.7.07 1.87.43.48.7 1.1.7 1.88 0 2.72-1.6 3.3-3.12 3.48.24.22.46.65.46 1.31v1.94c0 .18.12.4.46.33A6.8 6.8 0 0 0 8 1.2Z"
                   />
                 </svg>
+                <span class="contact-link-label" data-i18n="contactGithubLabel">GitHub</span>
               </a>
             </li>
             <li>
@@ -471,6 +469,7 @@
                     d="M3 2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM1.9 5.7h2.2V14H1.9V5.7Zm3.5 0h2.1v1.1h.03c.3-.55 1.02-1.23 2.1-1.23 2.24 0 2.65 1.47 2.65 3.37V14h-2.2V9.4c0-1.1-.02-2.5-1.53-2.5-1.53 0-1.76 1.2-1.76 2.42V14h-2.2V5.7Z"
                   />
                 </svg>
+                <span class="contact-link-label" data-i18n="contactLinkedinLabel">LinkedIn</span>
               </a>
             </li>
             <li>
@@ -495,6 +494,7 @@
                     d="M8 1.3a6.7 6.7 0 1 0 0 13.4A6.7 6.7 0 0 0 8 1.3Zm0 1.5a5.2 5.2 0 1 1 0 10.4A5.2 5.2 0 0 1 8 2.8ZM4.8 5.4h1.1v5.2H4.8V5.4Zm.56-1a.66.66 0 1 0 0 1.32.66.66 0 0 0 0-1.32Zm1.6 1h1.8c1.6 0 2.6 1.03 2.6 2.59 0 1.56-1 2.61-2.57 2.61H6.96V5.4Zm1.12 1v3.18h.64c.96 0 1.55-.58 1.55-1.59 0-1-.6-1.59-1.56-1.59h-.63Z"
                   />
                 </svg>
+                <span class="contact-link-label" data-i18n="contactOrcidLabel">ORCID</span>
               </a>
             </li>
           </ul>
@@ -575,14 +575,14 @@
           primaryNavAria: "Primary navigation",
           navAbout: "About",
           navFocus: "Focus",
-          navWork: "Public Evidence",
+          navWork: "Public Artifacts",
           navTimeline: "Timeline",
           navStack: "Tech Stack",
           navResearch: "Research Note",
           navContact: "Contact",
-          heroEyebrow: "Researcher / Developer",
+          heroEyebrow: "PhD Researcher in Computer Science",
           heroTitle:
-            "Researcher/developer building reproducible ML workflows for predictive modeling and evaluation.",
+            "PhD researcher building reproducible ML workflows for predictive modeling and evaluation.",
           heroLead:
             "I build Python-based evaluation pipelines, reporting tools, and workflow infrastructure for inspectable ML research.",
           evidenceStripTitle: "Verification paths",
@@ -595,23 +595,23 @@
           focusTag3: "Reproducible ML workflows",
           focusTag4: "Experiment reporting",
           focusTag5: "Research tooling in Python",
-          workTitle: "Public Evidence",
+          workTitle: "Public Artifacts",
           workIntro:
-            "These are the public artifacts a visitor can inspect now. They show how I frame my work, publish this site, and keep the public code surface lightweight and reviewable.",
+            "Inspectable public artifacts: research framing, site publishing, and code surface maintenance.",
           workCard1Title: "GitHub Profile README",
           workCard1Desc:
-            "Public profile repository outlining research interests, technical stack, and current direction. It matters because it is the fastest inspectable summary of how I position predictive modeling, reproducibility, and evaluation work.",
+            "Public profile repository covering research interests, technical stack, and current direction. The fastest overview of how I frame predictive modeling, reproducibility, and evaluation work.",
           workCard1Link1: "Profile repository",
           workCard1Link2: "GitHub profile",
           workCard2Title: "Portfolio Source and Deployment",
           workCard2Desc:
-            "Source code for this portfolio, including the trilingual static UI, GitHub Pages deployment workflow, and repository structure. It matters because it shows how I present work publicly with a small, reviewable stack.",
+            "Source code for this site: trilingual static UI, GitHub Pages deployment workflow, and repository structure. Reviewable end-to-end at the linked repository.",
           workCard2Link1: "Site source",
           workCard2Link2: "Deploy workflow",
           workCard2Link3: "Live site",
-          workCard3Title: "Validation and Maintenance Layer",
+          workCard3Title: "Site Quality Checks",
           workCard3Desc:
-            "Lightweight checks for repository-local links and HTML sanity in a static site repo. It matters because it is a concrete public example of workflow discipline around keeping documentation and reporting surfaces consistent.",
+            "Lightweight link validation and HTML checks for this repository. A concrete example of workflow discipline applied to a public documentation surface.",
           workCard3Link1: "Local link checker",
           workCard3Link2: "Quality workflow",
           timelineTitle: "Career Timeline",
@@ -648,7 +648,7 @@
           stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL",
           researchTitle: "Research Note",
           researchDesc:
-            "Some manuscript-linked code, datasets, and experiment outputs remain private while analyses are under review or reserved for submission/publication. The public materials here focus on reusable workflow components, validation scripts, and reporting surfaces that can be inspected independently now.",
+            "Some manuscript-linked code, datasets, and experiment outputs are withheld pending review or submission. Public materials focus on reusable workflow components, validation scripts, and reporting surfaces.",
           privacyNote:
             "Hosted on GitHub Pages. Theme/language preferences may be stored locally in your browser. No intentional advertising cookies or third-party tracking scripts.",
           privacyLinkLabel: "Privacy",
@@ -656,14 +656,17 @@
           thesisTitle: "Prediction of Machine Health Stability using Deep Learning",
           thesisMeta: "Chungbuk National University, 2023",
           thesisDesc:
-            "Studied machine health stability prediction in manufacturing settings using deep learning methods and feature construction from production and alarm-related signals. Forms an early research foundation for current work in predictive modeling and industrial machine-health analysis.",
+            "Applied deep learning methods with features derived from production and alarm signals to predict machine health stability in a manufacturing setting. Forms the research foundation for subsequent work in predictive modeling and industrial signal analysis.",
           thesisLink: "RISS Thesis Record",
           verificationLabel: "Additional public record:",
           verificationNtisLabel: "NTIS profile/search",
           contactTitle: "Contact & Links",
           contactGithubAria: "Open GitHub profile",
+          contactGithubLabel: "GitHub",
           contactLinkedinAria: "Open LinkedIn profile",
-          contactOrcidAria: "Open ORCID profile"
+          contactLinkedinLabel: "LinkedIn",
+          contactOrcidAria: "Open ORCID profile",
+          contactOrcidLabel: "ORCID"
         },
         ko: {
           siteName: "디망",
@@ -678,13 +681,13 @@
           primaryNavAria: "주요 내비게이션",
           navAbout: "소개",
           navFocus: "집중 분야",
-          navWork: "공개 근거",
+          navWork: "공개 아티팩트",
           navTimeline: "타임라인",
           navStack: "기술 스택",
           navResearch: "연구 노트",
           navContact: "연락처",
-          heroEyebrow: "연구자 / 개발자",
-          heroTitle: "예측 모델링과 평가를 위한 재현 가능한 ML 워크플로를 구축하는 연구자/개발자.",
+          heroEyebrow: "컴퓨터공학 박사 연구자",
+          heroTitle: "예측 모델링과 평가를 위한 재현 가능한 ML 워크플로를 구축하는 컴퓨터공학 박사 연구자.",
           heroLead:
             "들여다볼 수 있는 ML 연구를 위해 Python 기반 평가 파이프라인, 리포팅 도구, 워크플로 인프라를 구축합니다.",
           evidenceStripTitle: "검증 경로",
@@ -697,23 +700,23 @@
           focusTag3: "재현 가능한 ML 워크플로",
           focusTag4: "실험 리포팅",
           focusTag5: "Python 기반 연구 도구",
-          workTitle: "공개 근거",
+          workTitle: "공개 아티팩트",
           workIntro:
-            "방문자가 지금 확인할 수 있는 공개 아티팩트입니다. 제가 작업을 어떻게 정리해 보여주고, 이 사이트를 어떻게 배포하며, 공개 코드 범위를 얼마나 작고 검토 가능하게 유지하는지 확인할 수 있습니다.",
+            "검토 가능한 공개 아티팩트: 연구 프레이밍, 사이트 게시 방식, 코드 표면 유지 방식을 확인할 수 있습니다.",
           workCard1Title: "GitHub 프로필 README",
           workCard1Desc:
-            "연구 관심사, 기술 스택, 현재 방향을 정리한 공개 프로필 저장소입니다. 예측 모델링, 재현성, 평가 작업을 어떤 관점으로 다루는지 가장 빠르게 확인할 수 있는 자료입니다.",
+            "연구 관심사, 기술 스택, 현재 방향을 정리한 공개 프로필 저장소입니다. 예측 모델링, 재현성, 평가 작업의 관점을 가장 빠르게 파악할 수 있습니다.",
           workCard1Link1: "프로필 저장소",
           workCard1Link2: "GitHub 프로필",
           workCard2Title: "포트폴리오 소스와 배포",
           workCard2Desc:
-            "이 포트폴리오의 소스 코드로, 3개 언어 UI, GitHub Pages 배포 워크플로, 저장소 구조를 포함합니다. 작은 정적 스택으로 작업을 공개하는 방식을 직접 보여줍니다.",
+            "이 사이트의 소스 코드로, 3개 언어 정적 UI, GitHub Pages 배포 워크플로, 저장소 구조를 포함합니다. 링크된 저장소에서 전체를 검토할 수 있습니다.",
           workCard2Link1: "사이트 소스",
           workCard2Link2: "배포 워크플로",
           workCard2Link3: "라이브 사이트",
-          workCard3Title: "검증 및 유지 관리 레이어",
+          workCard3Title: "사이트 품질 검사",
           workCard3Desc:
-            "정적 사이트 저장소에서 로컬 링크와 HTML 기본 구성을 점검하는 경량 검사입니다. 문서와 보고 표면을 일관되게 유지하려는 워크플로 규율을 공개적으로 확인할 수 있습니다.",
+            "이 저장소에 대한 경량 링크 검증 및 HTML 점검입니다. 공개 문서 표면에 적용된 워크플로 규율의 구체적 예시입니다.",
           workCard3Link1: "로컬 링크 검사기",
           workCard3Link2: "품질 워크플로",
           timelineTitle: "경력 타임라인",
@@ -748,7 +751,7 @@
           stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL",
           researchTitle: "연구 노트",
           researchDesc:
-            "일부 논문 연계 코드, 데이터셋, 실험 산출물은 심사 중이거나 제출/출판 예정이라 비공개로 유지합니다. 현재 공개 자료는 재사용 가능한 워크플로 구성요소, 검증 스크립트, 독립적으로 검토 가능한 리포팅 표면에 초점을 둡니다.",
+            "일부 논문 연계 코드, 데이터셋, 실험 산출물은 심사 또는 제출 준비 중으로 비공개 상태입니다. 공개 자료는 재사용 가능한 워크플로 구성요소, 검증 스크립트, 리포팅 표면에 초점을 둡니다.",
           privacyNote:
             "이 사이트는 GitHub Pages에서 호스팅됩니다. 테마·언어 환경설정은 브라우저 로컬 저장소에 저장될 수 있습니다. 광고 쿠키 및 제3자 추적 스크립트는 의도적으로 사용하지 않습니다.",
           privacyLinkLabel: "개인정보",
@@ -756,14 +759,17 @@
           thesisTitle: "Prediction of Machine Health Stability using Deep Learning",
           thesisMeta: "충북대학교, 2023",
           thesisDesc:
-            "제조 환경에서의 기계 상태 안정성 예측을 주제로, 딥러닝 기법과 생산·알람 신호 기반의 특징 구성을 활용한 석사 논문입니다. 예측 모델링과 산업 설비 상태 분석에 관한 현재 연구의 초기 기반이 됩니다.",
+            "제조 환경에서 생산·알람 신호 기반 특징을 활용한 딥러닝으로 기계 상태 안정성을 예측한 연구입니다. 예측 모델링과 산업 신호 분석 분야 후속 연구의 토대를 이룹니다.",
           thesisLink: "RISS 논문 기록",
           verificationLabel: "추가 공개 기록:",
           verificationNtisLabel: "NTIS 프로필/검색",
           contactTitle: "연락처 및 링크",
           contactGithubAria: "GitHub 프로필 열기",
+          contactGithubLabel: "GitHub",
           contactLinkedinAria: "LinkedIn 프로필 열기",
-          contactOrcidAria: "ORCID 프로필 열기"
+          contactLinkedinLabel: "LinkedIn",
+          contactOrcidAria: "ORCID 프로필 열기",
+          contactOrcidLabel: "ORCID"
         },
         km: {
           siteName: "ឌីម៉ង់",
@@ -778,14 +784,14 @@
           primaryNavAria: "ការរុករកចម្បង",
           navAbout: "អំពី",
           navFocus: "ចំណុចផ្ដោត",
-          navWork: "ភស្តុតាងសាធារណៈ",
+          navWork: "សម្ភារៈសាធារណៈ",
           navTimeline: "បន្ទាត់ពេលវេលា",
           navStack: "បណ្ដុំបច្ចេកវិទ្យា",
           navResearch: "កំណត់ចំណាំស្រាវជ្រាវ",
           navContact: "ទំនាក់ទំនង",
-          heroEyebrow: "អ្នកស្រាវជ្រាវ / អ្នកអភិវឌ្ឍន៍",
+          heroEyebrow: "អ្នកស្រាវជ្រាវបណ្ឌិត វិទ្យាសាស្ត្រកុំព្យូទ័រ",
           heroTitle:
-            "អ្នកស្រាវជ្រាវ/អ្នកអភិវឌ្ឍន៍ ដែលបង្កើតលំហូរការងារ ML ដែលអាចធ្វើឡើងវិញបាន សម្រាប់ការបង្កើតគំរូព្យាករណ៍ និងការវាយតម្លៃ។",
+            "អ្នកស្រាវជ្រាវបណ្ឌិតដែលបង្កើតលំហូរការងារ ML ដែលអាចធ្វើឡើងវិញបាន សម្រាប់ការបង្កើតគំរូព្យាករណ៍ និងការវាយតម្លៃ។",
           heroLead:
             "ខ្ញុំបង្កើត evaluation pipelines, reporting tools និង workflow infrastructure ផ្អែកលើ Python សម្រាប់ការស្រាវជ្រាវ ML ដែលអាចត្រួតពិនិត្យបាន។",
           evidenceStripTitle: "ផ្លូវផ្ទៀងផ្ទាត់",
@@ -798,23 +804,23 @@
           focusTag3: "លំហូរការងារ ML ដែលអាចធ្វើឡើងវិញបាន",
           focusTag4: "Experiment reporting",
           focusTag5: "ឧបករណ៍ស្រាវជ្រាវដោយ Python",
-          workTitle: "ភស្តុតាងសាធារណៈ",
+          workTitle: "សម្ភារៈសាធារណៈ",
           workIntro:
-            "ទាំងនេះជាសម្ភារៈសាធារណៈដែលអ្នកចូលមើលអាចត្រួតពិនិត្យបានឥឡូវនេះ។ វាបង្ហាញពីរបៀបដែលខ្ញុំរៀបរាប់ការងារ បោះពុម្ពគេហទំព័រនេះ និងរក្សាផ្ទៃកូដសាធារណៈឱ្យតូច ស្រាល និងអាចពិនិត្យបាន។",
+            "សម្ភារៈសាធារណៈដែលអាចត្រួតពិនិត្យបាន: ការកំណត់ស្រាវជ្រាវ វិធីបោះពុម្ពគេហទំព័រ និងការថែទាំ code surface។",
           workCard1Title: "GitHub Profile README",
           workCard1Desc:
-            "ឃ្លាំងប្រវត្តិរូបសាធារណៈដែលសង្ខេបពីចំណាប់អារម្មណ៍ស្រាវជ្រាវ បណ្ដុំបច្ចេកវិទ្យា និងទិសដៅបច្ចុប្បន្ន។ វាសំខាន់ ព្រោះវាជាចំណុចសង្ខេបសាធារណៈដែលអាចត្រួតពិនិត្យបានលឿនបំផុត អំពីការងារលើ predictive modeling, reproducibility និង evaluation របស់ខ្ញុំ។",
+            "ឃ្លាំងប្រវត្តិរូបសាធារណៈ ដែលរួមមានចំណាប់អារម្មណ៍ស្រាវជ្រាវ បណ្ដុំបច្ចេកវិទ្យា និងទិសដៅបច្ចុប្បន្ន។ ជាទស្សនៈរហ័សបំផុតអំពីការប្រើ predictive modeling, reproducibility និង evaluation work របស់ខ្ញុំ។",
           workCard1Link1: "ឃ្លាំងប្រវត្តិរូប",
           workCard1Link2: "GitHub profile",
           workCard2Title: "កូដប្រភព និងការដាក់ឱ្យដំណើរការ",
           workCard2Desc:
-            "កូដប្រភពសម្រាប់ portfolio នេះ រួមមាន UI បីភាសា, GitHub Pages deployment workflow និងរចនាសម្ព័ន្ធឃ្លាំង។ វាសំខាន់ ព្រោះវាបង្ហាញរបៀបដែលខ្ញុំបង្ហាញការងារជាសាធារណៈដោយប្រើ static stack តូច និងអាចពិនិត្យបាន។",
+            "កូដប្រភពសម្រាប់គេហទំព័រនេះ: UI បីភាសា, GitHub Pages deployment workflow និងរចនាសម្ព័ន្ធឃ្លាំង។ អាចត្រួតពិនិត្យបានពីដើមមកចុងនៅ repository ដែលបានភ្ជាប់។",
           workCard2Link1: "កូដប្រភពគេហទំព័រ",
           workCard2Link2: "deployment workflow",
           workCard2Link3: "គេហទំព័រផ្ទាល់",
-          workCard3Title: "ស្រទាប់ផ្ទៀងផ្ទាត់ និងថែទាំ",
+          workCard3Title: "ការត្រួតពិនិត្យគុណភាពគេហទំព័រ",
           workCard3Desc:
-            "ការត្រួតពិនិត្យស្រាលសម្រាប់ repository-local links និង HTML sanity នៅក្នុង static site repo។ វាសំខាន់ ព្រោះវាជាភស្តុតាងសាធារណៈជាក់ស្តែងមួយនៃ workflow discipline ក្នុងការរក្សាឯកសារ និង reporting surfaces ឱ្យស្របគ្នា។",
+            "ការផ្ទៀងផ្ទាត់ link ស្រាល និង HTML checks សម្រាប់ repository នេះ។ ជាឧទាហរណ៍ជាក់ស្ដែងនៃ workflow discipline ដែលអនុវត្តទៅលើ documentation surface សាធារណៈ។",
           workCard3Link1: "local link checker",
           workCard3Link2: "quality workflow",
           timelineTitle: "បន្ទាត់ពេលវេលាអាជីព",
@@ -851,7 +857,7 @@
           stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL",
           researchTitle: "កំណត់ចំណាំស្រាវជ្រាវ",
           researchDesc:
-            "កូដពាក់ព័ន្ធនឹងអត្ថបទស្រាវជ្រាវ, datasets និង experiment outputs មួយចំនួន ត្រូវបានរក្សាទុកជាឯកជន ខណៈដែលការវិភាគកំពុងស្ថិតក្រោមការត្រួតពិនិត្យ ឬត្រៀមសម្រាប់ submission/publication។ សម្ភារៈសាធារណៈនៅទីនេះ ផ្ដោតលើ workflow components, validation scripts និង reporting surfaces ដែលអាចត្រួតពិនិត្យដោយឯករាជ្យបានឥឡូវនេះ។",
+            "កូដ, datasets និង experiment outputs មួយចំនួនត្រូវបានរក្សាទុកជាឯកជន ដោយសារការត្រួតពិនិត្យ ឬការត្រៀមបញ្ជូន។ សម្ភារៈសាធារណៈផ្ដោតលើ workflow components, validation scripts និង reporting surfaces ដែលអាចត្រួតពិនិត្យបាន។",
           privacyNote:
             "គេហទំព័រនេះបង្ហោះលើ GitHub Pages។ ចំណូលចិត្ត Theme/Language អាចត្រូវបានរក្សាទុកក្នុង Local Storage នៃកម្មវិធីរុករករបស់អ្នក។ គេហទំព័រនេះមិនមានបំណងប្រើ advertising cookies ឬ third-party tracking scripts ទេ។",
           privacyLinkLabel: "ឯកជនភាព",
@@ -859,14 +865,17 @@
           thesisTitle: "Prediction of Machine Health Stability using Deep Learning",
           thesisMeta: "Chungbuk National University, 2023",
           thesisDesc:
-            "និក្ខេបបទអនុបណ្ឌិតស្ដីពីការព្យាករណ៍ស្ថិរភាពម៉ាស៊ីនក្នុងបរិបទផលិតកម្ម ដោយប្រើវិធីសាស្ត្រ deep learning និងការបង្កើតលក្ខណៈពីសញ្ញាផលិតកម្ម និងសញ្ញាព្រមាន។ ជាមូលដ្ឋានស្រាវជ្រាវដំបូងសម្រាប់ការងារបច្ចុប្បន្នផ្នែក predictive modeling និងការវិភាគស្ថានភាពម៉ាស៊ីនក្នុងឧស្សាហកម្ម។",
+            "ការស្រាវជ្រាវការព្យាករណ៍ស្ថិរភាពម៉ាស៊ីននៅក្នុងបរិបទផលិតកម្ម ដោយប្រើ deep learning ជាមួយ features ដែលបានពីសញ្ញាផលិតកម្ម និងព្រមាន។ ជាមូលដ្ឋានស្រាវជ្រាវសម្រាប់ការងារបន្ទាប់ផ្នែក predictive modeling និងការវិភាគសញ្ញាម៉ាស៊ីន។",
           thesisLink: "កំណត់ត្រានិក្ខេបបទ RISS",
           verificationLabel: "កំណត់ត្រាសាធារណៈបន្ថែម៖",
           verificationNtisLabel: "NTIS profile/search",
           contactTitle: "ទំនាក់ទំនង និងតំណ",
           contactGithubAria: "បើកប្រវត្តិរូប GitHub",
+          contactGithubLabel: "GitHub",
           contactLinkedinAria: "បើកប្រវត្តិរូប LinkedIn",
-          contactOrcidAria: "បើកប្រវត្តិរូប ORCID"
+          contactLinkedinLabel: "LinkedIn",
+          contactOrcidAria: "បើកប្រវត្តិរូប ORCID",
+          contactOrcidLabel: "ORCID"
         }
       };
 
