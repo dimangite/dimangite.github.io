@@ -847,33 +847,34 @@ h2 {
   gap: 0.58rem;
 }
 
-.research-verification {
-  margin: 0.85rem 0 0;
-  font-size: 0.84rem;
-  line-height: 1.45;
-  color: var(--muted);
+.research-secondary {
+  margin: 0.9rem auto 0;
+  max-width: 75ch;
+  padding: 0.9rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   overflow-wrap: anywhere;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.32rem 0.45rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
-.research-verification-label {
-  color: var(--text-secondary);
+.research-secondary-eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
   font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-transform: uppercase;
 }
 
-.research-verification a {
+.research-secondary-body {
+  margin: 0.35rem 0 0;
   color: var(--text-secondary);
-  text-decoration-thickness: 1px;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
-.research-verification a:hover,
-.research-verification a:focus-visible {
-  color: var(--accent);
+.research-secondary-link {
+  margin: 0.55rem 0 0;
 }
 
 @media (max-width: 920px) {

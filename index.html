@@ -213,26 +213,31 @@
 
       <section class="section" id="research" aria-labelledby="research-title">
         <div class="container">
-          <h2 id="research-title" data-i18n="researchTitle">Research Record</h2>
+          <h2 id="research-title" data-i18n="researchTitle">Public Research Record</h2>
           <p class="research-note-text" data-i18n="researchDesc">
-            Public research record and identifiers. Manuscript-linked code and datasets may be
-            withheld pending review; public output focuses on reusable workflow components.
+            A curated summary of publicly available research history, including thesis records and
+            public research information. Some manuscript-linked code and datasets may remain private
+            pending submission and review schedules; current public materials focus on research
+            topics and reproducible workflows.
           </p>
           <ul class="card-grid thesis-grid">
             <li class="card">
               <p class="thesis-label" data-i18n="thesisLabel">Master's Thesis</p>
               <h3 data-i18n="thesisTitle">Prediction of Machine Health Stability using Deep Learning</h3>
               <p class="thesis-meta" data-i18n="thesisMeta">Chungbuk National University, 2023</p>
-              <p data-i18n="thesisDesc">Applied deep learning methods with features derived from production and alarm signals to predict machine health stability in a manufacturing setting. Provides the basis for subsequent work in predictive modeling and industrial signal analysis.</p>
+              <p data-i18n="thesisDesc">Applied deep learning to predict machine health stability using features derived from production and alarm signals in a manufacturing setting. Foundational work extending into subsequent research on predictive modeling and industrial time-series signal analysis.</p>
               <p class="card-links">
                 <a href="https://www.riss.kr/link?id=T16622317" target="_blank" rel="noopener noreferrer" data-i18n="thesisLink">RISS Thesis Record</a>
               </p>
             </li>
           </ul>
-          <p class="research-verification">
-            <span class="research-verification-label" data-i18n="verificationLabel">Additional public record:</span>
-            <a href="https://www.ntis.go.kr/ThSearchTotalList.do?sort=&ntisYn=&originalSearchWord=&originalSearchGubun=&searchWord=CHHOL+DIMANG" target="_blank" rel="noopener noreferrer" data-i18n="verificationNtisLabel">NTIS profile/search</a>
-          </p>
+          <aside class="research-secondary" aria-labelledby="research-secondary-title">
+            <p class="research-secondary-eyebrow" id="research-secondary-title" data-i18n="secondaryEvidenceTitle">Public researcher record</p>
+            <p class="research-secondary-body" data-i18n="secondaryEvidenceBody">Researcher identification and project linkage information published on NTIS.</p>
+            <p class="research-secondary-link card-links">
+              <a href="https://www.ntis.go.kr/ThSearchTotalList.do?sort=&ntisYn=&originalSearchWord=&originalSearchGubun=&searchWord=CHHOL+DIMANG" target="_blank" rel="noopener noreferrer" data-i18n="secondaryEvidenceLink">View NTIS researcher record</a>
+            </p>
+          </aside>
         </div>
       </section>
 
@@ -654,9 +659,9 @@
           timelineAward4Name: "Merit Scholarship (Tier C)",
           stackTitle: "Tech Stack",
           stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL",
-          researchTitle: "Research Record",
+          researchTitle: "Public Research Record",
           researchDesc:
-            "Public research record and identifiers. Manuscript-linked code and datasets may be withheld pending review; public output focuses on reusable workflow components.",
+            "A curated summary of publicly available research history, including thesis records and public research information. Some manuscript-linked code and datasets may remain private pending submission and review schedules; current public materials focus on research topics and reproducible workflows.",
           privacyNote:
             "Hosted on GitHub Pages. Theme/language preferences may be stored locally in your browser. No advertising cookies or third-party tracking scripts.",
           privacyLinkLabel: "Privacy",
@@ -664,10 +669,12 @@
           thesisTitle: "Prediction of Machine Health Stability using Deep Learning",
           thesisMeta: "Chungbuk National University, 2023",
           thesisDesc:
-            "Applied deep learning methods with features derived from production and alarm signals to predict machine health stability in a manufacturing setting. Provides the basis for subsequent work in predictive modeling and industrial signal analysis.",
+            "Applied deep learning to predict machine health stability using features derived from production and alarm signals in a manufacturing setting. Foundational work extending into subsequent research on predictive modeling and industrial time-series signal analysis.",
           thesisLink: "RISS Thesis Record",
-          verificationLabel: "Additional public record:",
-          verificationNtisLabel: "NTIS profile/search",
+          secondaryEvidenceTitle: "Public researcher record",
+          secondaryEvidenceBody:
+            "Researcher identification and project linkage information published on NTIS.",
+          secondaryEvidenceLink: "View NTIS researcher record",
           contactTitle: "Contact & Links",
           contactGithubAria: "Open GitHub profile",
           contactGithubLabel: "GitHub",
@@ -760,9 +767,9 @@
           timelineAward4Name: "성적우수(C급)",
           stackTitle: "기술 스택",
           stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL",
-          researchTitle: "연구 기록",
+          researchTitle: "공개 연구 기록",
           researchDesc:
-            "공개된 연구 기록 및 식별자입니다. 일부 논문 연계 코드와 데이터셋은 심사 준비로 비공개일 수 있으며, 공개 자료는 재사용 가능한 워크플로 구성요소에 초점을 둡니다.",
+            "학위논문 기록과 공공 연구 정보 등 공개 가능한 연구 이력을 정리했습니다. 일부 논문 연계 코드와 데이터셋은 제출·심사 일정에 따라 비공개일 수 있으며, 현재 공개 자료는 연구 주제와 재현 가능한 작업 흐름을 중심으로 제공합니다.",
           privacyNote:
             "이 사이트는 GitHub Pages에서 호스팅됩니다. 테마·언어 환경설정은 브라우저 로컬 저장소에 저장될 수 있습니다. 광고 쿠키 및 제3자 추적 스크립트는 사용하지 않습니다.",
           privacyLinkLabel: "개인정보",
@@ -770,10 +777,11 @@
           thesisTitle: "Prediction of Machine Health Stability using Deep Learning",
           thesisMeta: "충북대학교, 2023",
           thesisDesc:
-            "제조 환경에서 생산·알람 신호 기반 특징을 활용한 딥러닝으로 기계 상태 안정성을 예측한 연구입니다. 예측 모델링과 산업 신호 분석 분야 후속 연구의 기반이 됩니다.",
+            "제조 환경의 생산·알람 신호 기반 특징을 활용하여 딥러닝으로 기계 상태 안정성을 예측한 연구입니다. 예측 모델링과 산업 시계열 신호 분석 후속 연구로 확장되는 기반 작업입니다.",
           thesisLink: "RISS 논문 기록",
-          verificationLabel: "추가 공개 기록:",
-          verificationNtisLabel: "NTIS 프로필/검색",
+          secondaryEvidenceTitle: "연구자 공공 기록",
+          secondaryEvidenceBody: "NTIS에 공개된 연구자 식별 및 과제 연계 정보",
+          secondaryEvidenceLink: "NTIS 연구자 기록 보기",
           contactTitle: "연락처 및 링크",
           contactGithubAria: "GitHub 프로필 열기",
           contactGithubLabel: "GitHub",
@@ -869,9 +877,9 @@
           timelineAward4Name: "អាហារូបករណ៍ពូកែ (កម្រិត C)",
           stackTitle: "បណ្ដុំបច្ចេកវិទ្យា",
           stackDesc: "Python, PyTorch, scikit-learn, pandas, Jupyter, Git, Linux/WSL",
-          researchTitle: "កំណត់ត្រាស្រាវជ្រាវ",
+          researchTitle: "កំណត់ត្រាស្រាវជ្រាវសាធារណៈ",
           researchDesc:
-            "កំណត់ត្រាស្រាវជ្រាវសាធារណៈ និងអត្តសញ្ញាណ។ កូដ និង datasets ដែលភ្ជាប់នឹងសាត្រាស្លឹករឹតអាចត្រូវបានរក្សាទុកឯកជនដោយសារការត្រួតពិនិត្យ។ សម្ភារៈសាធារណៈផ្ដោតលើ workflow components ដែលអាចប្រើឡើងវិញបាន។",
+            "សង្ខេបប្រវត្តិស្រាវជ្រាវដែលអាចបង្ហាញជាសាធារណៈ រួមទាំងកំណត់ត្រានិក្ខេបបទ និងព័ត៌មានស្រាវជ្រាវសាធារណៈ។ កូដ និង datasets មួយចំនួនដែលភ្ជាប់នឹងសាត្រាស្លឹករឹត អាចនៅតែជាឯកជន អាស្រ័យលើកាលវិភាគនៃការដាក់បញ្ជូន និងការត្រួតពិនិត្យ។ សម្ភារៈសាធារណៈបច្ចុប្បន្នផ្ដោតលើប្រធានបទស្រាវជ្រាវ និងលំហូរការងារដែលអាចធ្វើឡើងវិញបាន។",
           privacyNote:
             "គេហទំព័រនេះបង្ហោះលើ GitHub Pages។ ចំណូលចិត្ត Theme/Language អាចត្រូវបានរក្សាទុកក្នុង Local Storage នៃកម្មវិធីរុករករបស់អ្នក។ គេហទំព័រនេះមិនប្រើ advertising cookies ឬ third-party tracking scripts ទេ។",
           privacyLinkLabel: "ឯកជនភាព",
@@ -879,10 +887,12 @@
           thesisTitle: "Prediction of Machine Health Stability using Deep Learning",
           thesisMeta: "Chungbuk National University, 2023",
           thesisDesc:
-            "ការស្រាវជ្រាវការព្យាករណ៍ស្ថិរភាពម៉ាស៊ីននៅក្នុងបរិបទផលិតកម្ម ដោយប្រើ deep learning ជាមួយ features ដែលបានពីសញ្ញាផលិតកម្ម និងព្រមាន។ ជាមូលដ្ឋានស្រាវជ្រាវសម្រាប់ការងារបន្ទាប់ផ្នែក predictive modeling និងការវិភាគសញ្ញាម៉ាស៊ីន។",
+            "ការអនុវត្ត deep learning ដើម្បីព្យាករណ៍ស្ថិរភាពស្ថានភាពម៉ាស៊ីន តាមរយៈ features ដែលបានពីសញ្ញាផលិតកម្ម និងព្រមាន នៅក្នុងបរិបទផលិតកម្ម។ ជាមូលដ្ឋានស្រាវជ្រាវដែលពង្រីកទៅការងារបន្តលើ predictive modeling និងការវិភាគសញ្ញា time-series ឧស្សាហកម្ម។",
           thesisLink: "កំណត់ត្រានិក្ខេបបទ RISS",
-          verificationLabel: "កំណត់ត្រាសាធារណៈបន្ថែម៖",
-          verificationNtisLabel: "NTIS profile/search",
+          secondaryEvidenceTitle: "កំណត់ត្រាអ្នកស្រាវជ្រាវសាធារណៈ",
+          secondaryEvidenceBody:
+            "ព័ត៌មានអត្តសញ្ញាណអ្នកស្រាវជ្រាវ និងការភ្ជាប់គម្រោង បានបោះពុម្ពលើ NTIS។",
+          secondaryEvidenceLink: "មើលកំណត់ត្រាអ្នកស្រាវជ្រាវ NTIS",
           contactTitle: "ទំនាក់ទំនង និងតំណ",
           contactGithubAria: "បើកប្រវត្តិរូប GitHub",
           contactGithubLabel: "GitHub",
