@@ -1,5 +1,8 @@
 # dimangite.github.io
 
+[![Deploy GitHub Pages](https://github.com/dimangite/dimangite.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/dimangite/dimangite.github.io/actions/workflows/deploy.yml)
+[![Static Quality Checks](https://github.com/dimangite/dimangite.github.io/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/dimangite/dimangite.github.io/actions/workflows/quality.yml)
+
 Static GitHub Pages portfolio for Dimang Chhol (CS PhD), focused on predictive modeling, ML evaluation, and reproducible research engineering.
 
 ## Purpose
