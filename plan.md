@@ -1,117 +1,235 @@
-## Navigation Duplication Fix Plan
+# Portfolio Site Current-State Plan
 
-- Root cause confirmed: `index.html` rendered two separate nav trees (`desktop-nav` and `mobile-nav`) with identical links, and the mobile copy remained a second semantic/navigation structure even when visually hidden.
-- Refactored the header to one canonical semantic nav list shared by desktop and mobile layouts.
-- Updated the menu toggle state so closed mobile navigation is hidden both visually and from the accessibility tree.
-- Verified the updated structure preserves translations, theme toggle behavior, section anchors, and responsive desktop/mobile nav behavior in the code paths.
+_Last updated: 2026-05-05_
 
-## Review Pass — Navigation and Translation Quality
+## Purpose
 
-### Start entry
-- Date/time: 2026-04-17 (review session)
-- Scope: verify the completed single-nav refactor against the review standard, and audit user-facing wording and all three translation dictionaries (`en`, `ko`, `km`) for professionalism and natural phrasing.
-- Files to inspect: `index.html`, `styles.css`, `plan.md`. Out of scope: SEO, redesign, animation, repo housekeeping.
+This repository is the public portfolio site for `https://dimangite.github.io/`.
 
-### Completion entry
-- Date/time: 2026-04-17 (review session, same sitting)
-- Reviewed:
-  - `index.html` header markup, nav toggle wiring, primary-nav structure, event handlers, and `syncNavigationState()` logic.
-  - `styles.css` header, nav-toggle, `.site-nav`, and responsive mobile breakpoint (≤ 900px).
-  - `translations.en`, `translations.ko`, `translations.km` dictionaries end-to-end (nav, hero, focus, work, timeline, awards, research, privacy, footer, aria labels).
-- Nav verdict: structurally and semantically correct. Single `<nav id="primary-nav" class="site-nav">`, single `<ul class="nav-list">`, no `desktop-nav` / `mobile-nav` / `mobileMenuAria` residue anywhere in the repo. `aria-controls`, `aria-expanded`, `hidden`, and `.is-open` are all routed through `syncNavigationState()`, which is called from toggle click, link click, outside click, Escape, and breakpoint change. CSS `.site-nav:not(.is-open) { display: none }` at ≤ 900px guards the mobile closed state even if JS is delayed, so there is no FOUC and no exposed closed-menu nav list in the accessibility tree.
-- Changes made in this pass:
-  - `styles.css`: consolidated two adjacent `.nav-toggle { ... }` blocks into one rule (display plus all other properties). Cosmetic cleanup only; no behavioral change.
-  - `index.html` (Korean dictionary only):
-    - `heroTitle` (ko): dropped colloquial "그리고"; the clean comma-enumerated list reads more professional.
-    - `workCard1Desc` (ko): removed the adjacent "가능한 / 가능한" repetition by rephrasing "재현 가능한 출력 생성을 위한 재사용 가능한" to "재현 가능한 출력을 지원하는 재사용성 높은".
-    - `workCard3Desc` (ko): replaced stiff literal "감사 대응 가능한" with more natural "감사에 활용 가능한" for "audit-ready comparison reports".
-  - English and Khmer dictionaries: no changes required. English copy is already concise and restrained; Khmer wording preserves official institution names and standard technical terms per instruction.
-- Verification performed:
-  - `index.html` contains exactly one `<nav>` and one `.nav-list`.
-  - No references to `desktop-nav`, `mobile-nav`, or `mobileMenuAria` remain in `index.html` or `styles.css`.
-  - All `data-i18n` keys used in markup exist in all three translation dictionaries (spot-checked nav keys, hero, work cards, timeline, awards, research, privacy, footer).
-  - Theme toggle, language toggle, section anchors, and responsive breakpoint logic were left untouched.
-  - Could not verify: live headless-browser rendering across viewports (Edge blocked by sandbox crashpad permissions in this environment, same as the prior run).
-- Final verdict: ACCEPTED. Nav refactor is correct and maintainable; translation quality is now consistent and professionally phrased across all three languages.
+It presents a restrained academic/engineering profile for a Computer Science PhD student focused on reproducible ML evaluation, predictive modeling, research tooling, and public project artifacts. The site is intentionally static, low-dependency, and GitHub Pages-native.
 
-## Visual Refinement Pass — Dark Palette and Footer Alignment
+## Current Repository Structure
 
-### Start entry
-- Date/time: 2026-04-17 (current session)
-- Scope: refine dark-mode palette from blue-heavy navy to neutral slate/charcoal, and correct footer alignment coherence without redesigning structure or content.
-- Files in scope: `styles.css` (primary), `index.html` (audit only), `plan.md`.
+```text
+.
+├── .claude/                  # Local/agent working notes if present; not part of runtime site
+├── .github/workflows/        # GitHub Actions workflows
+│   ├── deploy.yml            # GitHub Pages deployment
+│   ├── quality.yml           # Static quality/local link validation
+│   └── codeql-analysis.yml   # CodeQL/code scanning workflow
+├── scripts/                  # Repository utility scripts
+│   └── check_local_links.py  # Local internal-link validation
+├── tests/                    # Unit tests for repository scripts/checks
+├── .gitignore
+├── ARCHITECTURE.md           # Architecture and documentation diagrams
+├── CHANGELOG.md              # Site/project change log
+├── README.md                 # Repository overview
+├── _config.yml               # GitHub Pages/Jekyll compatibility config
+├── favicon.svg
+├── index.html                # Main public portfolio page
+├── plan.md                   # Current-state plan and operating notes
+├── privacy.html              # Privacy note page
+├── robots.txt
+├── sitemap.xml
+└── styles.css                # Main site styling and responsive behavior
+```
 
-### Completion entry
-- Date/time: 2026-04-17 (current session, same sitting)
-- Issue A findings (dark mode):
-  - Existing dark tokens were strongly blue (`#0f1520`, `#161f2f`, `#2c3a52`, bright blue accent), making page/background/surfaces too hue-adjacent and less professional.
-  - Secondary text and muted hierarchy were not separated enough for restrained dark readability.
-- Issue A fixes applied (`styles.css`):
-  - Replaced dark palette tokens with a neutral slate/charcoal system:
-    - `--bg: #0b0d10`, `--surface: #11151a`, `--surface-raised: #161b22`, `--border: #232a33`
-    - `--text: #e6edf3`, `--text-secondary: #a9b4c0`, `--muted: #7d8896`
-    - `--accent: #6aa0ff`, `--accent-hover: #8ab4ff`, `--accent-rgb: 106, 160, 255`
-    - chip tokens: `--chip-bg: rgba(106, 160, 255, 0.08)`, `--chip-border: rgba(106, 160, 255, 0.22)`
-  - Added tokenized header/overlay backgrounds (`--header-bg`, `--overlay-bg`) and applied them to sticky header/mobile nav for clearer separation from page background.
-  - Updated tags/chips to low-contrast filled pills with restrained borders via shared chip tokens.
-  - Tuned secondary text usage on cards/timeline/supporting metadata to improve hierarchy and reduce harshness.
-- Issue B findings (footer alignment):
-  - Footer blocks used inconsistent vertical spacing contracts (`contact-links`, privacy note, and bottom row each with independent offsets), making alignment feel optically off.
-  - Bottom row used `justify-content: space-between` with a single content group, which created an unintentional layout signal.
-- Issue B fixes applied (`styles.css`):
-  - Unified footer alignment flow with `.site-footer .container` as a single left-aligned vertical stack.
-  - Removed offset margins from `.contact-links` and `.footer-privacy-note` and used consistent container-driven spacing.
-  - Made `.footer-bottom` full-width but left-anchored (`justify-content: flex-start`) with preserved responsive behavior.
-  - Allowed `.footer-controls` to wrap cleanly and stay aligned across narrow widths.
-- Verification summary:
-  - Desktop and mobile footer layout rules now share one coherent left edge and spacing contract.
-  - Dark palette tokens now read neutral dark/slate rather than navy-blue, with clearer surface/header separation.
-  - Light mode token values and page structure were kept intact.
+## Current Runtime Surface
 
-## Lighthouse Optimization Pass — Remaining Practical Issues
+### Main site
 
-### Start entry
-- Date/time: 2026-04-17 (current session)
-- Scope: reduce remaining Lighthouse diagnostics with minimal static-safe edits, focusing on render-blocking resources, dependency-chain cost, initial-load main-thread work, and minor DOM simplification while preserving behavior/UI.
-- Files in scope: `index.html`, `styles.css`, `privacy.html`, `plan.md`.
+- URL: `https://dimangite.github.io/`
+- Entry point: `index.html`
+- Styling: `styles.css`
+- Deployment target: GitHub Pages
+- Runtime model: static HTML/CSS/JavaScript only
 
-### Completion entry
-- Date/time: 2026-04-17 (current session, same sitting)
-- Findings confirmed:
-  - Render-blocking dependency came mainly from unconditional Google Fonts stylesheet in `<head>` for Khmer typography.
-  - Initial-load JS performed unnecessary full translation pass even in default English state.
-  - Minor DOM wrapper depth remained in selected-work cards and footer control container.
-  - Cache-lifetime tuning is constrained on GitHub Pages for origin headers and third-party font responses.
-- Fixes applied:
-  - `index.html`: removed unconditional Google Fonts `<link rel="stylesheet">` and static preconnects; added guarded `window.ensureKhmerFontLoaded()` to load Khmer font resources only when active language is Khmer (initial or toggled).
-  - `index.html`: optimized `applyLanguage()` to skip full i18n DOM rewrite for first-load default English and only run translation pass when needed.
-  - `index.html`: simplified DOM depth by removing three non-essential `<article>` wrappers inside `.card-grid` and flattening footer utilities wrapper into one `.footer-controls` container.
-  - `styles.css`: moved former `.footer-utilities` structural styles into `.footer-controls` and removed obsolete media rule.
-  - `index.html` and `privacy.html`: aligned dark-mode `theme-color` meta value with current dark token (`#0b0d10`) for correctness.
-- Validation:
-  - `python scripts/check_local_links.py` passed.
-  - `python -m unittest discover -s tests -v` passed (9/9).
+### Major public sections
 
-## Regression Audit Pass — CLS and Forced-Reflow Stabilization
+- About / hero profile
+- Profiles and records evidence strip
+- Research scope
+- Public research record
+- Career timeline
+- Tech stack
+- Repository artifacts
+- Contact and links
+- Privacy/footer controls
 
-### Start entry
-- Date/time: 2026-04-17T11:11:06Z
-- Scope: root-cause audit and minimal fixes for initial-load instability on `index.html`/`styles.css`, prioritizing CLS and forced-reflow risk on theme/language/font/nav initialization.
-- Guardrails: preserve multilingual support (`en`/`ko`/`km`), theme toggle, mobile navigation, footer privacy flow, and current visual identity with static GitHub Pages-safe edits only.
+### Current repository artifact cards
 
-### Completion entry
-- Date/time: 2026-04-17T11:11:06Z (same session)
-- Root causes confirmed:
-  - Test-sensitive CLS spike when a persisted non-English language is restored: initial HTML is English, then `applyLanguage()` rewrites many text nodes after first render.
-  - Khmer path amplifies this by loading the Khmer font stylesheet at runtime, allowing additional post-render metric shifts.
-  - `applyLanguage()` was writing text/aria attributes unconditionally during translation passes, increasing synchronous main-thread mutation cost.
-  - Language toggle width was not explicitly reserved, leaving minor control-width movement risk during language changes.
-- Fixes applied:
-  - Added first-paint stabilization lock for non-English startup (`data-i18n-pending`) so translated state is applied before revealing content.
-  - Updated Khmer loader to return a reusable Promise and used bounded font readiness waits during initial Khmer restore to avoid late visible swaps.
-  - Reduced unnecessary DOM rewrites by only mutating i18n text/aria nodes when values actually change.
-  - Reserved language toggle dimensions (`#lang-toggle`, `#lang-toggle-value`) to keep footer controls stable.
-- Validation:
-  - `python scripts/check_local_links.py` passed.
-  - `python -m unittest discover -s tests -v` passed (9/9).
-  - `parallel_validation` passed (no code review issues; no CodeQL-analyzable language changes).
+The `Repository Artifacts` section currently includes:
+
+1. GitHub Profile README
+2. Portfolio Source & Deployment
+3. Site Quality Checks
+4. System Design Lab
+
+The System Design Lab card links to the live documentation site while allowing the source repository to remain private until ready for publication.
+
+## Current Architecture
+
+The repository follows a static-site architecture:
+
+```text
+Browser
+  -> GitHub Pages static hosting
+    -> index.html
+    -> styles.css
+    -> favicon.svg
+    -> privacy.html
+    -> sitemap.xml / robots.txt
+
+Developer workflow
+  -> Pull request or direct branch update
+  -> quality.yml / local checks
+  -> deploy.yml
+  -> GitHub Pages deployment
+```
+
+## Current Design System
+
+The site uses a compact, portfolio-oriented visual system.
+
+### Light mode tokens
+
+- Background: `#f7f8fa`
+- Surface: `#ffffff`
+- Raised surface: `#f1f4f8`
+- Text: `#1d2430`
+- Secondary text: `#4e5b70`
+- Muted text: `#667489`
+- Border: `#d8dde5`
+- Accent: `#2f5eb8`
+
+### Dark mode tokens
+
+- Background: `#0b0d10`
+- Surface: `#11151a`
+- Raised surface: `#161b22`
+- Text: `#e6edf3`
+- Secondary text: `#a9b4c0`
+- Muted text: `#7d8896`
+- Border: `#232a33`
+- Accent: `#6aa0ff`
+
+### UI behavior
+
+- Theme preference is stored locally in the browser.
+- Language preference is stored locally in the browser.
+- The site avoids advertising cookies and third-party tracking scripts.
+- Khmer font loading is lazy/conditional to reduce default render-blocking cost.
+
+## Current Internationalization State
+
+`index.html` contains inline translation dictionaries for:
+
+- English (`en`)
+- Korean (`ko`)
+- Khmer (`km`)
+
+Important rule: when changing user-facing text with `data-i18n`, update all three dictionaries in the same change. Do not patch only English.
+
+## Current CI/CD and Verification
+
+### Workflows
+
+- `.github/workflows/deploy.yml`
+  - Publishes the static site to GitHub Pages.
+- `.github/workflows/quality.yml`
+  - Runs repository quality checks.
+- `.github/workflows/codeql-analysis.yml`
+  - Runs CodeQL/code scanning where supported by repository settings.
+
+### Local verification commands
+
+Run before merging site changes:
+
+```bash
+python scripts/check_local_links.py
+python -m unittest discover -s tests -v
+```
+
+For HTML/CSS/JS edits, also manually verify:
+
+- Desktop viewport
+- Mobile viewport around the 900px navigation breakpoint
+- Theme toggle behavior
+- Language toggle behavior
+- Footer controls
+- Internal anchors
+- External links opening correctly
+
+## Current Governance Rules
+
+1. Keep the site static and GitHub Pages-compatible.
+2. Do not add build tooling unless there is a clear maintenance benefit.
+3. Do not add analytics, advertising cookies, or unnecessary third-party scripts.
+4. Do not expose private research data, lab credentials, database details, or unpublished manuscript artifacts.
+5. Keep portfolio copy factual and restrained.
+6. Maintain all three language dictionaries when changing translated content.
+7. Treat `index.html` as high-risk because markup, translation dictionaries, and behavior are co-located.
+8. Prefer small PRs with one purpose: content, style, workflow, or documentation.
+
+## Current Known State
+
+Completed:
+
+- Main portfolio static site is live.
+- Trilingual support exists for the main page.
+- Dark/light theme support exists.
+- Mobile navigation exists.
+- Privacy page exists.
+- `robots.txt` and `sitemap.xml` exist.
+- Quality workflow and deploy workflow exist.
+- CodeQL workflow exists.
+- Architecture documentation exists in `ARCHITECTURE.md`.
+- System Design Lab is already listed in Repository Artifacts.
+
+Needs periodic review:
+
+- Keep `README.md`, `ARCHITECTURE.md`, and this `plan.md` synchronized after structural changes.
+- Ensure new artifact cards have EN/KO/KM translations.
+- Ensure GitHub Pages deployment remains active after workflow or repository-setting changes.
+- Ensure public links still resolve after repository visibility changes.
+
+## Active Next Steps
+
+### 1. Keep documentation synchronized
+
+When repository structure changes, update:
+
+- `README.md`
+- `ARCHITECTURE.md`
+- `plan.md`
+
+### 2. Validate System Design Lab integration
+
+After System Design Lab visual polish is merged and deployed:
+
+- Confirm the live demo link works from the main portfolio.
+- Confirm the repository-private wording remains accurate.
+- If the source repository becomes public later, update the card copy and translations.
+
+### 3. Preserve visual consistency
+
+Any satellite project linked from this portfolio should reuse the main portfolio design language where practical:
+
+- compact header
+- simple footer
+- small circular theme control in footer
+- restrained accent color
+- neutral dark mode
+- no oversized gradient-heavy landing-page treatment
+
+## Definition of Done for Future Portfolio Changes
+
+A change is complete only when:
+
+- Relevant files are updated.
+- Local link checks pass.
+- Unit tests pass.
+- Desktop and mobile layouts are visually checked.
+- Theme/language behavior is checked when affected.
+- Public-facing copy is factual and professional.
+- No private or sensitive material is exposed.
