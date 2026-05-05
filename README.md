@@ -9,7 +9,7 @@ Static GitHub Pages portfolio for Dimang Chhol: a public-facing research and eng
 **Architecture notes:** [`ARCHITECTURE.md`](ARCHITECTURE.md)  
 **Privacy entry point:** [`privacy.html`](privacy.html)
 
-## First impression
+## Portfolio System Overview
 
 This repository demonstrates a low-dependency portfolio system: semantic HTML, responsive CSS, trilingual UI text, local preference persistence, GitHub Pages deployment, and lightweight CI checks.
 
